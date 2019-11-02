@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = ['e', 'c', 'a', 'b'];
+        // unicode编码顺序来排
+        arr.sort();
+        console.log(arr);
+
+        var arr2 = [1, 2, 5, 11, 23];
+        arr2.sort();
+        // 还是按照Unicode  编码
+        console.log(arr2); //[1, 11, 2, 23, 5]
+
+
+        // 总结: 不带参数时  按照unicode 编码的顺序来排列
+
+
+
+        // 带参数 时  咱们可以指定排序规则
+        // 函数作为参数
+        arr2.sort(function (a, b) {
+            // a,b 代表 arr2 里边相邻的两个元素
+            // 指定排序规则
+            return a - b; // 从小到大 升序
+            // 结果<0  位置不变
+            // 结果>0  交换位置
+            // 等于0  不动
+            // return b - a; // 从大到小  降序
+        })
+        console.log(arr2);
+        var users = [{
+                name: '张三',
+                age: 20,
+                height: 176
+            },
+            {
+                name: '李四',
+                age: 19,
+                height: 175
+            },
+            {
+                name: '王五',
+                age: 22,
+                height: 172
+            },
+            {
+                name: '赵六',
+                age: 18,
+                height: 174
+            },
+            {
+                name: '陈琦',
+                age: 18,
+                height: 178
+            },
+
+        ]
+
+        // 按照年龄从小到大排序
+        // 年龄相同时  按身高从大到小排
+        users.sort(function (a, b) {
+            if (a.age === b.age) {
+                return b.height - a.height
+            } else {
+                return a.age - b.age;
+            }
+        })
+        console.log(users);
+    </script>
+</body>
+
+</html>

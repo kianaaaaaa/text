@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 10;
+        // 当符合条件时,就执行花括号里边的代码
+        while (num > 0) {
+            console.log(num);
+            num--;
+        }
+        // 10 9  8 7 6 5 4 3 2 1 
+
+        // do...while  循环
+        var i = 10;
+        do {
+            console.log(i);
+            i--;
+        } while (i > 0)
+
+        // 10 9 8 7 6 5 4 3 2 1
+
+        //  两者不一样的地方
+        // while  先判断条件,再执行
+        // do ... while  ,先执行,在判断
+        // 造成后果 就是  假如  初始条件就不符合 
+
+        var count = 0;
+        do {
+            console.log(count);
+            count--;
+        } while (count > 0)
+        // 0
+
+        // while (count > 0) {
+        //     console.log(count);
+        //     count--;
+        // }
+        // 什么都不打印
+
+
+        // 假如投资的年利率为 5%，试求从 1000 块增长到 5000 块，需要花费多少年？
+        var money = 1000;
+        // age 用来记录过了几年
+        var age = 0;
+        while (money <= 5000) {
+            money = money * 1.05;
+            age = age + 1;
+        }
+        console.log(age); // 33
+    </script>
+</body>
+
+</html>

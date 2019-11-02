@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 条件判断语句
+        var age = prompt('请输入您的年龄');
+
+        // if (条件表达式) {
+        // 条件表达式 只有两种结果 true false 
+        //     // 条件为真时，做的事情
+        // }
+
+        if (age > 18 && age < 60) {
+            // 符合条件时,要执行的代码
+            alert('你可以考驾照');
+        }
+
+        // 注意  if 后边的 括号 具备隐式转换的功能(转换为布尔值)
+        var num = 10;
+        if (num) {
+            console.log(num);
+        }
+
+        // 第二种形式,条件分支语句 else
+        var cj = 80;
+        // if (cj >= 60) {
+        //     alert('及格');
+        // }
+        // if (cj < 60) {
+        //     alert('不及格')
+        // }
+        // 可以写成这种形式
+        if (cj >= 60) {
+            alert('及格');
+        } else {
+            alert('不及格');
+        }
+
+
+        // 多分支语句
+        // 优秀  良好  及格   不及格
+        // if (cj >= 90) {
+        //     alert('优秀');
+        // }
+        // if (cj >= 80 && cj < 90) {
+        //     alert('良好');
+        // }
+        // if (cj >= 60 && cj < 80) {
+        //     alert('及格');
+        // }
+        // if (cj < 60) {
+        //     alert('不及格');
+        // }
+        // 写成这种形式
+        if (cj >= 90) {
+            alert('优秀')
+        } else if (cj >= 80) {
+            alert('良好');
+        } else if (cj >= 60) {
+            alert('及格');
+        } else {
+            alert('不及格')
+        }
+        // 每一个else  都暗含了 之上的条件不满足
+        // 跳楼现象
+    </script>
+</body>
+
+</html>

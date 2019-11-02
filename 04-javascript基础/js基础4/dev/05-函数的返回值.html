@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数的返回值 ,就是函数执行的结果(并不是他做了什么事情)
+        // 默认的返回值 是undefined
+        // pop这个方法
+        // return 后边的 结果  就是 函数的返回值
+
+        // 注意的是 函数 return  后边的 语句代码 不再执行
+        function add(x, y) {
+            console.log(x + y);
+            // var h = x + y;
+            // return h;
+            return x + y;
+            // 代码走不到后边
+            console.log(1);
+        }
+        // 我想拿到求和的 结果
+        var sum = add(3, 5); // 函数执行后的  返回值 赋值给 sum
+        console.log(sum); // 8
+
+
+        function fn() {
+            console.log('函数执行了');
+        }
+
+        // fn; fn();
+
+        // return 出去的 数据 可以是任意的数据类型  包括 对象 和 函数
+        function foo() {
+            return function bar() {
+                console.log('你好');
+            }
+        }
+        var a = foo(); // bar函数 赋值给了a
+        a();
+    </script>
+</body>
+
+</html>

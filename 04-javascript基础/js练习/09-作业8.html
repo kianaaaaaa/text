@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function jc(n) {
+            if (n == 1) {
+                return 1;
+            }
+            return n * jc(n - 1);
+        }
+
+        function jch(n) {
+            // n!+jch(n-1)
+            if (n === 1) {
+                return 1;
+            }
+            return jc(n) + jch(n - 1);
+        }
+        console.log(jch(3));
+
+
+        // 判断是不是质数
+        function isZhi(n) {
+            // 根据因数个数
+            var count = 0;
+            for (var i = 0; i <= n; i++) {
+                if (n % i === 0) {
+                    count++
+                }
+            }
+            return count > 2 ? false : true;
+        }
+        console.log(isZhi(21));
+    </script>
+</body>
+
+</html>

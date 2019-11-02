@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        对象的分类
+        // js  内置对象    Array  Object  Math
+        // 宿主对象  DOM 和 BOM   console
+
+        // 开发人员 自定义的对象
+
+
+        // 对象 是用来 封装信息,用来描述一个事物
+        // 属性名:属性值(键值对)  集合
+        // 属性(特征) 和 方法(行为)
+        //  每个 属性之间   用 逗号隔开
+
+        var user = {
+            name: '张三',
+            age: 26,
+            sex: true,
+            like: ['篮球', '足球'],
+            child: {
+                name: '小明',
+                age: 2
+            },
+            say: function () {
+                alert('你好')
+            },
+            sayName: function () {
+                // this的 指向 
+                //函数 没用调用时,this的指向是 不知道的
+                // 调用时才会确定
+                alert(this.name);
+            }
+        }
+        // 获取对象的属性
+        // 对象.属性名;
+        console.log(user.name);
+        // 调用 user 的  say 方法
+        user.say();
+
+        // 调用了.此时 this 指向了  user 对象
+        // this 指向调用者 (.前边的那个对象)
+        user.sayName();
+
+        var a = 10;
+        // foo();
+        // 相当于
+        window.foo();
+
+        function foo() {
+            alert(this.a);
+        }
+    </script>
+</body>
+
+</html>

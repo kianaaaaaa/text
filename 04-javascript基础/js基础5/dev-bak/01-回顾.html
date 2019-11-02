@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 封装 常用代码和功能,实现复用
+
+
+        // 存在提升机制, 就可以先使用后声明
+        // 具名函数  关键字
+        function foo() {
+            alert('你好啊');
+            var a = 1;
+        }
+
+        // 匿名函数表达式
+        var bar = function () {
+
+        }
+
+        // 立即执行函数
+        ;
+        (function () {
+            alert('你好')
+        })()
+
+        // 函数的调用  
+        // 函数里边的代码  不调用是不会执行的
+        // 函数名();
+
+        // 函数的参数  用一个形参来代表你传进来的  实际参数,在函数里对形参变量进行操作
+        // 形参 和 实参
+        // 形参和 实参 数量保持一致
+        function say(str) {
+            // 相当于
+            // var str;
+            alert(str);
+        }
+
+
+        // 返回值(就是函数计算fn()的结果)
+        // return 后边的值
+        // 并不是所有函数都需要返回值
+        // return 之后   的代码 就不再执行了
+
+
+        // 作用域的概念
+        // 全局作用域  函数作用域 
+        // 全局变量    局部变量
+
+        // 变量查找的规则 就近原则 (先从自身找,找不到向父级作用域查找,一直找到全局作用域)
+
+
+
+        //  变量声明提升  函数声明提升
+        // 赋值操作并未提升
+
+        console.log(a); // undefined
+        var a = 10;
+
+
+
+        // 参数传递的问题(基本数据类型作为参数     复杂数据类型作为参数)
+
+
+        // 递归的思想   (本次结果 和  前几次的结果有关系)
+        // 递归一定要有 跳出条件 (写在最前边)
+        function jc(n) {
+            if (n === 1) {
+                return 1;
+            }
+            return n * jc(n - 1);
+
+            // if (n === 1) {
+            //     return 1
+            // } else{
+            //     return n * jc(n - 1)
+            // }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var n = 10;
+        // 把 n+ 5 的 结果 赋给 n
+        n = n + 5; // 15
+        // 简写成
+        n += 5; // 20
+        console.log(n);
+        n -= 10; // 10
+
+        var a = 5;
+        a += 1; // 6
+        a++;
+        // 或者
+        ++a;
+        console.log(a); //8
+
+        // ++a  和  a++ 的区别
+        // 相同 : 都实现了 a 往上 加1
+        // ++a  是  先++再赋值  (返回的结果 是 +1 之后的值)
+        // a++  是 先赋值 后++  (返回的结果  是  +1  之前的值)
+
+        var b = 10;
+        var d = b++;
+        console.log(b); // 11
+        console.log(d); // 10 
+        var e = ++b;
+        console.log(b); //12
+        console.log(e) // 12
+
+
+        // --  同理
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 作用域指一个变量的作用范围。 在 js 中， 一共有两种作用域：
+
+        // 全局作用域
+        // 在全局作用域中：
+
+        // 创建的变量都会作为 window 对象的属性保存。
+
+        // 创建的函数都会作为 window 对象的方法保存。
+        // 函数作用域
+        var a = 1; //  全局变量 ,任何地方都可以使用他
+        // 全局情况下 ,我们拿不到函数内部的变量 拿不到 b
+        function foo() {
+            var b = 10; // 局部变量 只能在 foo函数里边 使用
+            function bar() {
+                var c = 100;
+                console.log(b); // 这里可以使用b
+            }
+
+            function say() {
+                // 这里不能使用c
+            }
+        }
+
+        console.log(window);
+    </script>
+</body>
+
+</html>

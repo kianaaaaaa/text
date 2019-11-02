@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 求两个数中的最大值
+        function getMax(a, b) {
+            return a > b ? a : b;
+        }
+        console.log(getMax(2, 4));
+
+        function getMax3(a, b, c) {
+            // if (a >= b) {
+            //     if (a >= c) {
+            //         return a;
+            //     } else {
+            //         return c;
+            //     }
+            // } else {
+            //     if (b >= c) {
+            //         return b;
+            //     } else {
+            //         return c;
+            //     }
+            // }
+            return getMax(a, b) > c ? getMax(a, b) : c;
+
+        }
+        console.log(getMax3(1, 3, 7));
+
+        function getArrMax(arr) {
+
+        }
+    </script>
+</body>
+
+</html>

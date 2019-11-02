@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 这里边  msg  就是一个 形参,不调用时,并不知道它代表什么,占位用的
+
+        // 调用时  括号里的 '你好'称为 实参(实际的参数)
+        function say(msg) {
+            // var msg;
+            alert(msg);
+        }
+        say('你好');
+
+        function add(x, y) {
+            // if () {
+            //     // 对非法参数进行过滤
+            // }
+            console.log(x + y);
+        }
+        add(3, 5);
+
+        // 情况一  ,实参 比形参要少
+        add(3); // NaN
+        // 情况2  实参 比 形参 多,多于实参 不参与赋值
+        add(3, 5, 7); // 8
+    </script>
+</body>
+
+</html>

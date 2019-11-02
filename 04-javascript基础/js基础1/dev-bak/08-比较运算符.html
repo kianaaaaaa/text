@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 比较大小
+        // >  <  >= <=  == !=   ===(严格相等)  !==
+        // 比较运算符  通过 返回 true  或者 false  来表明比较的结果
+        console.log(3 > 5); // false
+        console.log(3 <= 5); // true
+
+
+        // 非数值的比较 会将其转换为数字然后再比较。
+        console.log(true > 0); //true
+        console.log(10 < '100'); // true
+
+        // 任何值和NaN做任何比较都是false
+        console.log(10 > 'hello'); // false
+
+        // 特殊  两边都是字符串 不会将其转换为数字进行比较。  而是比较unicode 编码
+        console.log('123' > '59'); // false
+        console.log('hello' > 'world'); // false 104  >119
+
+
+
+        // 重点   ==  和 ===  区别
+        console.log(5 == '5'); //true
+        console.log(undefined == null); // true
+        console.log(NaN == NaN); //false
+        // 严格等于 先比较数据类型,再比较大小
+        console.log(5 === '5'); // false
+        console.log(undefined === null); //false
+
+
+        // ==的反面是!=，===的反面是!==
+        console.log(3 != 5); // true
+    </script>
+</body>
+
+</html>

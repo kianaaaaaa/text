@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明变量 接收用户输入的数字
+        var num = Number(prompt('请输入一个数字'));
+        if (num % 5 === 0 && num % 6 === 0) {
+            alert('' + num + '既能被5整除又能被6整除');
+        }
+        if (num % 5 === 0 && num % 6 !== 0) {
+            alert(num + '能被5整除但是不能被6整除');
+        }
+        if (num % 5 !== 0 && num % 6 !== 0) {
+            alert(num + '既不能被5整除也不能被6整除');
+        }
+        if (num % 5 !== 0 && num % 6 === 0) {
+            alert(num + '能被6整除但是不能被5整除');
+        }
+    </script>
+</body>
+
+</html>

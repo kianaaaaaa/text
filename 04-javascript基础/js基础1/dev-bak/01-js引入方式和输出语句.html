@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入css -->
+    <link rel="stylesheet" href="">
+    <!-- 引入js -->
+    <!-- src 写js文件路径 -->
+    <!-- 外部引入 -->
+    <!-- <script src="test.js"></script> -->
+
+    <!-- 执行顺序 从上之下 -->
+    <!-- 内部书写 -->
+    <script>
+        // 如果写在这个地方,需要让页面加载成功之后在执行这里边的代码
+        window.onload = function () {
+            alert('我是内部书写的js代码')
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- 推荐 -->
+    <!-- 写在所有标签之后 -->
+
+
+    <script src="test.js"></script>
+    <script>
+        alert('我是写在body标签里边的代码')
+
+        // console.log() ：控制台输出。
+        console.log('bufanxueyuan')
+
+        // prompt()：用户输入语句
+        var text = prompt('请输入用户名:');
+        // prompt()语句中，用户不管输入什么内容，都是字符串。
+        console.log(text);
+    </script>
+</body>
+
+</html>

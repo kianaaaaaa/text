@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // while (条件表达式) {
+        //     语句...
+        // }
+
+        // 遍历 1-10;
+        var i = 1;
+        while (i <= 10) {
+            console.log(i);
+            i++;
+        }
+
+        // do...while 循环
+
+        // do {
+        //     语句...
+        // } while (条件表达式)
+
+        // 先执行在判断
+
+        var n = 1;
+        do {
+            console.log(n);
+            n++;
+        } while (n <= 10)
+
+
+
+        // 假如说 一开始就不符合条件,do while  会执行一次,
+
+
+        // 假如投资的年利率为 5%，试求从 1000 块增长到 5000 块，需要花费多少年？
+        // 计数器
+        var count = 0;
+        var money = 1000;
+        while (money < 5000) {
+            money *= 1.05;
+            count++;
+        }
+        console.log(count); // 33nian 
+    </script>
+</body>
+
+</html>

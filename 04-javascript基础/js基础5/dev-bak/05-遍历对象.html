@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: '张三',
+            age: 30,
+            sex: '男'
+        }
+        // 遍历对象
+        for (var key in obj) {
+            console.log(key); // 这个对象的 所有属性名
+            // obj.key  拿到的是 obj的 key 属性( obj 并没有  key属性,所以 undefined)
+            // obj.xx 获取属性时,如果 xx 是个 变量(会变化)  需要采用  obj[xx]获取属性值
+            console.log(obj.key); // ubndefined
+            console.log(obj[key]);
+        }
+    </script>
+</body>
+
+</html>

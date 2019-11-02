@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 转成 字符串 
+        // 方式一 :  调用 toString()方法...
+        // 1. 数字类型
+        var num = 123;
+        num = num.toString();
+        console.log(num); // 123
+        var num2 = 345;
+        console.log(num2.toString(2)); // 101011001
+        // 2. 布尔值
+        console.log(true.toString()); // true
+        // 3 null 和 undefined  没有 toString 方法
+        // console.log(null.toString())
+
+        // 方式二  使用String()
+        // 1.数字
+        console.log(String(345)); // 345
+        // 2. 布尔值
+        console.log(String(false)); //false
+        // null 和 undefined 
+        console.log(String(undefined)); // undefined
+        console.log(String(null)); // null 
+
+        // 方式三  +'';  拼接作用
+        console.log(123);
+        console.log(123 + ''); // 123
+        console.log(true + '');
+        console.log(undefined + '');
+        console.log(null + '');
+
+
+
+        // 转成 数字类型
+        // 方式一 Number();
+        // 1 字符串
+        console.log(Number('123')); // 123
+        console.log(Number('abc123')); // NaN
+        console.log(Number('')); // 0
+        console.log(Number('     ')); //0 
+        // 2  布尔值
+        console.log(Number(true)); // 1
+        console.log(Number(false)); // 0
+        // 3 undefined 和 null
+        console.log(Number(undefined)); // NaN
+        console.log(Number(null)); //0
+
+
+        //  转成布尔值 Boolean()
+        // 1  字符串
+        console.log(Boolean('')); // false
+        console.log(Boolean(' ')); // true 
+        console.log(Boolean('false')); // true
+        // 2. 数字
+        console.log(Boolean(0)); // false
+        console.log(Boolean(NaN)); // false
+        // 3 undefined 和 null
+        console.log(Boolean(undefined)); // false
+        console.log(Boolean(null)); // false
+
+        console.log(Boolean({})); // true
+        // 总结: NaN 0 undefined  null  '' 这五种转换为false,其余 都是true
+
+
+
+        // 强调 ,涉及到隐式转换 时   所使用的时  String()  Number()  Boolean()
+    </script>
+</body>
+
+</html>

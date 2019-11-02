@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 注释 -->
+    <script>
+        // 注释
+        // 变量 都是储存数据的容器
+        // 字面量 常见 数字  字符串(引号)
+        console.log(123);
+        console.log('不凡学院');
+        // abc 不会被当作字符串解析 ,会被当做变量
+        // console.log(abc);
+
+        // 在 js 中使用var关键字来声明一个变量。
+        // 关键字  具有特殊功能能的 短语或者单词 关键字词  之后要有空格
+        // 声明变量
+        var title;
+        // 给变量赋值 '=' 赋值运算符(右边赋给左边)
+        title = '不凡学院';
+        console.log(title); // 不凡学院
+
+
+        // 推荐写法  声明变量的同时 就给他一个初始值
+        var a = 1;
+        // 每一句代码结束 都要以  分号 结尾
+        // 同时声明多个变量 可以用 逗号隔开
+        var b = 2,
+            c = 3;
+        console.log(b);
+        console.log(c);
+        // 变量要先定义(声明)，才能使用。
+        // text is not defined  没有这个 变量
+        var text = '天气';
+        console.log(text);
+
+
+        变量命名的规则
+        // 1. 字母 数字 下划线  $
+        var first_name;
+        // 2. 不能以 数字开头
+        // var 1a;
+        // var a1; // 可以
+        // 3. 不能使用关键字 和 保留字
+        // 4. 严格区分大小写
+        // var a;
+        // var A;
+        // 5 建议用驼峰命名规则：getElementById/matherAndFather/aaaOrBbbAndCcc
+        var firstName;
+        // 6 见名知意 ,语义化
+    </script>
+</body>
+
+</html>

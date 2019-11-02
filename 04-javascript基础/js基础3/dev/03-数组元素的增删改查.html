@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [2, 5, 8, 1];
+        console.log(arr);
+
+        // length:4;  数组长度为4 
+        console.log(arr.length); // 4 
+
+        // 0: 2
+        // 1: 5
+        // 2: 8
+        // 3: 1
+
+        // 这里  0,1,2,3 咱们称之为数组的 索引  (下标)
+        // 下标  从 0 开始
+
+        // 1. 使用索引 查找元素
+        // arr[下标]
+        console.log(arr[1]);
+        console.log(arr[2]);
+        console.log(arr[3]);
+        console.log(arr[arr.length - 1]);
+        // 如果读取不存在的索引（比如元素没那么多），系统不会报错，而是返回 undefined。
+        console.log(arr[5]); // undefined
+
+        // 2. 使用索引 添加(追加)元素
+        var arr1 = new Array();
+        arr1[0] = 20;
+        arr1[1] = 30;
+        // arr1[4] = 60;
+        // 在数组末尾加一个元素
+        arr1[arr1.length] = 100;
+        console.log(arr1);
+
+        // 3.   使用索引   取 修改元素
+        arr[2] = 13;
+        console.log(arr);
+
+        var arr2 = new Array();
+        arr2[0] = 1;
+        arr2[4] = 10;
+        console.log(arr2.length); // 5
+        // 对于连续的数组，使用 length 可以获取到数组的长度（元素的个数）；
+        // 对于非连续的数组，使用 length 会获取到数组的最大的索引+1。因此，尽量不要创建非连续的数组。
+
+
+        // 数组的length 我们可以进行修改
+        // arr2.length = 2;
+        arr2.length = 8;
+        console.log(arr2);
+    </script>
+</body>
+
+</html>

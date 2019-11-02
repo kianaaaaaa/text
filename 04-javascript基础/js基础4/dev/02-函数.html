@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数：就是将一些功能或语句进行封装，在需要的时候，通过调用的形式，执行这些语句。
+
+        function say() {
+
+        }
+        var arr = [3, 5, 2, 1];
+        var arr1 = [10, 9, 8, 4];
+
+        function bubbleSort(arr) {
+            for (var j = 0; j < arr.length - 1; j++) {
+                // 外层循环 控制轮次,arr.length-1次
+
+                // 每执行完一趟之后,内层循环都可以少比较一次
+                for (var i = 0; i < arr.length - 1 - j; i++) {
+                    // arr[i]和 arr[i+1]]
+                    if (arr[i] > arr[i + 1]) {
+                        // 交换位置
+                        // arr[i] = arr[i + 1];
+                        // arr[i + 1] = arr[i];
+                        var temp = arr[i];
+                        arr[i] = arr[i + 1];
+                        arr[i + 1] = temp;
+                    }
+                }
+                // console.log(arr);
+            }
+            console.log(arr);
+        }
+        bubbleSort(arr);
+        bubbleSort(arr1);
+    </script>
+</body>
+
+</html>

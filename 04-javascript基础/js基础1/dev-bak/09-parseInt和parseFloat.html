@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // parseInt()  转换为整数
+        // parseFloat()  转换为 小数
+        // parseInt()的作用是将字符串中的有效的整数内容转为数字。parse 表示“转换”，Int 表示“整数”（
+        var a = '12345';
+        var b = '123.4';
+        console.log(parseInt(a)); // 12345
+        console.log(parseFloat(b)); // 123.4
+
+        var c = '123a';
+        console.log(parseInt(c)); // 123
+        console.log(parseInt('    2019abc')); // 2019
+        // 转换规则: 从第一个非空白字符（空格、换行、tab）开始转换，直到遇到一个非数字字符为止。
+        // 不会四舍五入  取整
+        var sum = parseInt(5.8) + parseInt(4.7); //
+        console.log(sum); // 9  
+
+        // 非字符串
+        // 如果对非 String使用 parseInt()或 parseFloat()，它会先将其转换为 String然后再操作。
+
+
+        // parseFloat()：字符串 --> 浮点数（小数）
+        var d = "123.456.789px";
+        console.log(parseFloat(d)); // 123.456
+    </script>
+</body>
+
+</html>

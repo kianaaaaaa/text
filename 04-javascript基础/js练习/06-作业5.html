@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 6 工资的数组[1500,1200,2000,2100,2100,1800],把工资超过2000的删除
+        var arr = [1500, 1200, 2000, 2100, 2100, 1800];
+
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] > 2000) {
+                // 删除的时候 原数组发生了改变
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+        console.log(arr);
+
+        var newArr = [];
+        arr.forEach(function (item) {
+            if (item <= 2000) {
+                newArr.push(item);
+            }
+        })
+        console.log(newArr);
+    </script>
+</body>
+
+</html>

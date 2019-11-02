@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <SCript>
+        var arr = [9, 3, 2, 8, 5];
+        var arr1 = [1, 10, 9, 8, 5];
+        var arr22 = [354,545,458,458,54,548,99,10]
+        function laji(arr) {
+            for (var j = 1; j < arr.length; j++) {
+                for (var i = 0; i < arr.length - j; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        var temp = arr[i];
+                        arr[i] = arr[i + 1];
+                        arr[i + 1] = temp;
+
+                    }
+                }
+            }
+        }
+
+        laji(arr22)
+        console.log(arr22);
+
+
+    </SCript>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 变量 声明提升
+        // 代码执行, 会先扫描一遍 , 把var 声明的变量 提升到 所有代码 执行 之前
+        //提升的 仅仅是声明这个动作
+        // 并没有提升 赋值操作
+        var a = 100;
+        // 变量必须 先声明后使用
+        console.log(a); // 没有声明a时: a is no defined
+
+        console.log(b); // undefined
+        var b = 100;
+        // 真正的执行顺序
+        // var n;
+        // console.log(b);
+        // b = 100;
+
+        say();
+        say();// undefined // add is not a funcion
+        // 必须是通过 function 关键字声明的具名函数
+        // 函数声明 也存在提升 提升到所有代码之前
+        function say() {
+            console.log('hello');
+        }
+
+        var add = function () {
+            console.log('匿名函数');
+            
+        }
+
+    </script>
+</body>
+
+</html>

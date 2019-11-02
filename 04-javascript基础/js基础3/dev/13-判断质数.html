@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = parseInt(prompt('输入一个数'));
+        // var count = 0; // 计数器
+        // for (var i = 1; i <= 24; i++) {
+        //     if (num % i === 0) {
+        //         // console.log(i);
+        //         count++;
+        //     }
+        // }
+        // if (count === 2) {
+        //     alert('' + num + '是质数');
+        // }
+
+
+        // 遍历 1  和  它本身之间的  数,如果发现 有一个能被 n 整除,说明 n不是质数
+        var isZhi = true; // 默认 true  代表是质数  false 代表不是质数
+        for (var i = 2; i < num; i++) {
+            if (num % i === 0) {
+                isZhi = false;
+                break;
+            }
+        }
+        alert(isZhi ? '质数' : '不是质数');
+    </script>
+</body>
+
+</html>

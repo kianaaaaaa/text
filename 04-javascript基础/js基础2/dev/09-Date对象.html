@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Date对象  js 内置对象 -->
+    <!-- Date   构造函数  首字母大写  用来造(创建)对象-->
+    <!-- 模板对象 -->
+
+    <!-- Date 对象  就是 内置的  时间对象 模板 -->
+    <script>
+        // 构造函数 创建对象  需要用 new   这个关键词
+        var date1 = new Date(); // 获取当前时间对象
+        var date2 = new Date();
+        console.log(date1);
+        console.log(date2);
+        console.log(date1 === date2); // false
+
+
+        var date3 = new Date("2017/09/06 09:00:00");
+        console.log(date3);
+
+        var dateTime = new Date();
+        var day = dateTime.getDate();
+        console.log(day);
+        var weekDay = dateTime.getDay(); // 4  周四
+        console.log(weekDay);
+        var month = dateTime.getMonth(); // 0---11  8代表9月份
+        console.log(month);
+        var year = dateTime.getFullYear();
+        console.log(year);
+        var hour = dateTime.getHours();
+        var min = dateTime.getMinutes();
+        var second = dateTime.getSeconds();
+        var millS = dateTime.getMilliseconds(); // 1s===1000ms
+        console.log(hour, min, second, millS);
+
+
+        // 拼接字符串 常规操作
+        // 2019年9月26日 14时26分30秒;
+        // var str = year + '年' + (month + 1) + '月' + day + '日 ' + hour + '时' + min + '分' + second + '秒';
+
+        var str = '' + year + '年' + (month + 1) + '月' + day + '日 ' + hour + '时' + min + '分' + second + '秒';
+        console.log(str);
+        // 方法   把其中的 变量干掉 改成  '+变量名+'
+
+
+        // 时间戳 
+        console.log(dateTime.getTime());
+        // 距离 1970年 0时0分0秒  的  毫秒数
+
+        // console.log(new Date(1569479335949));
+    </script>
+
+
+</body>
+
+</html>

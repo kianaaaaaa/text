@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 方式一 字面量形式
+        var obj = {};
+
+        // 方式二
+        // 通过Object 这个 顶级对象  new 一个对象
+
+        var obj2 = new Object();
+
+        // 如何 给对象 添加属性
+        obj.name = '张三';
+        obj.age = 27;
+        console.log(obj);
+
+        // 修改属性
+        obj.name = '李四';
+        console.log(obj);
+
+        // 删除属性
+        delete obj.age;
+        console.log(obj);
+
+        var objTemp = obj;
+        // 这个地方  赋值 的  是变量名保存的 引用地址
+        objTemp.name = 'WANGWU';
+        console.log(objTemp);
+        console.log(obj);
+
+
+        // 方式三   自定义构造函数  new 一个对象
+        // 普通函数 和 构造函数的区别 
+        // 首字母大写
+        // 构造函数使用时  new 
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.say = function () {
+                alert(this.age);
+            }
+        }
+        var zs = new Person('张三', 26);
+        // zs 创建出来 实例对象
+        console.log(zs);
+
+        zs.say();
+
+        // 对于构造函数中的 this ,指向的是 创建出来的实例对象
+
+
+        // new 到底做了什么?
+        // 1 执行Person ,创建了 {}
+        // 2. 将构造函数函数中  this  指向了 {}
+        // 3.按顺序 执行构造函数中的 代码
+        // {}.name = '张三';
+        // {}.age = 26
+        // 相当于给这个{}追加了属性和方法
+        // 4 把这个对象  return 出去
+    </script>
+</body>
+
+</html>

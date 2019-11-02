@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数据类型转换(基本)
+
+        // 第一种情况 其他数据类型====> 字符串类型
+        // 三种方法
+        // 1. string () 这个方法 可以把括号里面的变量转换成 字符串类型
+        //  规则 20 =====> '20'  NaN===>'NaN'
+        // treu ===> 'true'  false===>'false' 
+        // undefind ====>'undefinde'
+        // null=====> 'null'
+        var unm = 100;
+        var num_str =String(num);
+        console.log(num);
+        console.log(num_str);
+        console.log(typeof num_str);
+        console.log(String(true));
+        console.log(String(NaN));
+        console.log(String(undefined));
+        console.log(String(null));
+        // 第二种情况 其他数据类型  ====>  数字类型
+        // number()
+        //  字符串变数字=======> 100
+        // 纯数字字符串 直接变成数字
+        // 字符串里面含有非数字的字符 则 NaN
+        //  如果是 空字符串, 或者 字符串全是空格   转换为0
+        // true======>1 false======>0
+        // undefined  =====> NaN
+        // null =====> 0
+        console.log(Number('100')); //100
+        console.log(Number('abc')); // NAN
+        console.log(Number ('abc0'));// NaN
+        console.log(Number(''));// 0
+        console.log(Number ('    '));// 0
+        console.log(Number(true)); // 1
+        console.log(Number(false)); // 0
+        console.log(Number(null)); // 0
+        console.log(Number(undefined)); // NaN
+
+        // 第三种情况  其他数据类型 ===> 布尔值
+        // Boolean()
+        // 字符串
+        // 数字 
+        // null
+        // undefined
+        // 只用记忆 什么情况下 会被转换成 false即可,其余情况 全是true
+        console.log(Boolean('')); // false
+        console.log(Boolean('abc'));// true
+        console.log(Boolean('    '));// true
+        console.log(Boolean(100));// true
+        console.log(Boolean(-100));// true
+        console.log(Boolean(NaN));// false
+        console.log(Boolean(0));// false
+        console.log(Boolean(null));// false
+        console.log(Boolean(undefined));// false
+        console.log(Boolean({}));// 红的对象 true
+
+        // 为什么要重点的记忆 string()  numbder() boolean()
+        // 因为 隐式转换 采用的 是这三种方法
+
+
+        // 比较 'abc' 和 20 的大小?
+        // 比较是 会把 'abc' 转换成数字(隐式转换) 在进行比较
+        // js 正当中存在很多隐式转换
+
+
+
+
+        // 补充 转换成字符串的 其他方法
+        // 方法1. tostring()
+        // 语法   a.tostring(); 把 a 转换成 字符串
+        var a = 20;
+        var b = NaN;
+        var c;
+        var d = null;
+        console.log(a.toString());
+        console,log(b.toString()); // NaN
+        // 对于 undefined 和null 而言 不能使用 tostring() 这个方法
+        // 报错
+        //   console.log(a.toString());
+        // console,log(b.toString());
+
+        // 方法 二
+        // 利用+ 这个运算符
+        var str1 ='你好';
+        var numl = 20;
+        // 在这个地方 + 起到了一个拼接字符串的作用
+        console.log(str1 + num1); // '你好20'
+        console.log(str1 + true); // 你好true
+        console.log(str1 + null); // 你好null
+        console.log(str1 + undefined);// 你好undefined
+
+        // 补充 
+        // 转成 数字类型的 其他方法
+        // 解决的是 这种情况 '20abc'
+
+        // 字符串 转换成数字 的方法 补充
+        //  parseint() 转成数证书
+        // parsefloat () 转成小数
+
+        // 转换规则 从第一个非空白字符 (空格, 换行, tab) 开始转换, 知道遇到一个非数字字符位置.
+        // (2) 自动带有截断 小数的功能: 取整, 不四舍五入
+
+        // 注意 如果对 非 string 使用 parseint() 或者 parsefloat(), 他会先将其转换为 string然后在操作.
+        // (4) 带有两个参数是 , 表示进制转换
+        console.log(parseint('16', 10)); // 16
+        console.log(parseint('16', 16));// 22
+
+        // parseflat()
+        var a = "123.456.789px";
+        console.log(parseFloat(a));// 打印结果: 123.456
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 3 找到数组中每个字母出现的次数["c", "a", "z", "a", "a"]
+
+        // var words = {
+        //     c: 1,
+        //     a: 3,
+        //     z: 1
+        // }
+        var words = {};
+        var arr = ["c", "a", "z", "a", "a"];
+        for (var i = 0; i < arr.length; i++) {
+            // 已经存在时  +1,,不存在记录为1
+            if (words[arr[i]]) {
+                words[arr[i]] = words[arr[i]] + 1;
+            } else {
+                words[arr[i]] = 1;
+
+            }
+        }
+        console.log(words);
+    </script>
+</body>
+
+</html>

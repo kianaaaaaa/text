@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1) 当对非 Number 类型的值进行运算( 包括 + 、 -、 * 、/ )时, 会将这些值转换为 Number 延后在运算
+         // （注：字符串 + Number、字符串 + 字符串是特例，稍后再讲） 
+        console.log(5 - '10'); //-5
+        console.log(true - 0);// 1
+        console.log(null + 100);// 100
+        console.log(undefined - 100);// NaN
+        // 2. 有 NaN 参与运算的结果都是 nan
+        // 3. 任何的值和字符串做加法运算, 都会先转换成字符串,然后在做拼串操作.
+        // 加法运算 有一遍是字符串 ,都会吧另一边转换成字符串 进行拼接操作
+        console.log('bufanxueyuan' + 100); // 'bufanxueyuan 100'
+        var c = 100;
+        var cstr = String(c);
+        var cstr1 = c + '';
+        
+        //   4. 任何值做 -  *  / 运算时候都会自动转换成 Number
+        //  我们可以利用这一特点 , 为一个值 -0 *1  /1 来将其转换为 Number
+
+        var str = '200';
+        console.log(Number(str));
+        
+
+
+    </script>
+</body>
+
+</html>

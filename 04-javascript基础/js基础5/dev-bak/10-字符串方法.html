@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = "how are you? and you?";
+        console.log(str.charAt(5)); // r  返回指定位置的字符(从0开始数)
+        console.log(str.charCodeAt(5)); // 114 指定位置字符的 Unicode编码
+
+        console.log(str.indexOf('o')); // 1 返回 'o' 在字符串的中的 位置
+        console.log(str.lastIndexOf('o')); // 18 返回 'o' 在字符串的中的 位置(从后往前)
+
+        var str2 = 'fine';
+        var newStr = str.concat(str2);
+        console.log(newStr);
+
+        // slice() 截取磨一部分
+        console.log(str.slice(1, 6)); // 'ow ar'
+
+        // substr() 截取字符串
+        // 开始索引,  截取的长度(个数)
+        console.log(str.substr(1, 6)); // 'ow are'
+
+        // toLowerCase  变成小写 不会改变原字符串
+        console.log(str.toUpperCase());
+        console.log(str)
+    </script>
+</body>
+
+</html>

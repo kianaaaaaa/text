@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 实现 x的 y次方
+
+        // 方式一 
+        // function pow(x, y) {
+        //     // x*x*x  累乘  y 个
+        //     var result = 1;
+        //     for (var i = 1; i <= y; i++) {
+        //         result = result * x;
+        //     }
+        //     return result;
+        // }
+
+
+        // 2^5 = 2^4*2=2^3*2*2;
+        // 2^n = 2^(n-1)*2
+
+        function pow(x, y) {
+            // 递归的跳出条件
+            // 必须有
+            if (y === 1) {
+                return x;
+            }
+            return x * pow(x, y - 1);
+        }
+        console.log(pow(2, 6));
+        // 2 * pow(2, 3);
+        // 2 * 2 * pow(2, 2);
+        // 2 * 2 * 2 * pow(2, 1)
+        // 2 * 2 * 2 * 2 * pow(2, 0)
+        // 2 * 2 * 2 * 2 * 2 * pow(2, -1)
+        // ...
+        // pow() 一直会分裂下去
+
+
+        // 走台阶的问题   10个 台阶 ,每一 走 1节 或者 2节 ....有几种走法
+
+        function foo(n) {
+            if (n === 2) {
+                return 2
+            }
+            if (n === 1) {
+                return 1
+            }
+            return foo(n - 1) + foo(n - 2);
+        }
+        console.log(foo(3));
+
+
+        // 斐波那契数列
+        // 斐波那切数列(不死神兔)
+        // 假设一对刚出生的小兔一个月后就能长成大兔，再过一个月就能生下一对小兔，
+        // 并且此后每个月都生一对小兔，一年内没有发生死亡，问：一对刚出生的兔子，一年内繁殖成多少对兔子?
+
+        // 1  1  2  3  5  8   13  21  34  55  89  144
+
+        // 原来的兔子(上一个月) + 新生的兔子(上上一个月)
+
+
+        function fb(n) {
+            // 跳出条件
+            if (n === 1 || n === 2) {
+                return 1;
+            }
+            return fb(n - 1) + fb(n - 2);
+        }
+        console.log(fb(12));
+    </script>
+</body>
+
+</html>

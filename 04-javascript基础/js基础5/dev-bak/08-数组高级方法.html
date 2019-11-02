@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 添加元素  push()  unshift()
+        // 删除元素  pop()   shift()
+        // join()  数组变为  字符串
+        // split()  字符串  变为数组
+        // concat()  链接数组
+
+
+        var arr = [1, 3, 5, 7, 9];
+        // forEach()方法  可以帮我们 遍历数组
+        // 支持一个函数 作为参数(回调函数), 这个回调函数 会帮我们 处理遍历到的  每一个数组元素
+        // 回调函数里边  支持三个参数  第一个 遍历到的元素(item) ,第二个参数(遍历元素对应的下标index),第三个参数(你遍历的数组)
+        //  第一个参数 必须写,其余两个参数可以省略
+        arr.forEach(function (item, index, arr) {
+            // 这里需要写  你对数组元素的 操作
+            console.log(item);
+            console.log(index);
+            console.log(arr);
+        })
+
+
+        // reverse()  反转数组
+        var arr1 = [2, 4, 6, 8];
+        var result1 = arr1.reverse(); // 修改了原数组
+        console.log(arr1);
+        console.log(result1); // 返回值 是  反转后的数组
+
+
+        // slice() 截取数组 arr.slice(开始的索引,结束的索引);不包括结束索引的值
+        // 并不会修改原数组
+        var arr2 = ['a', 'b', 'c', 'd'];
+        var result2 = arr2.slice(1, 3);
+        console.log(arr2); // ["a", "b", "c", "d"]  
+        console.log(result2); // 返回截取的  (数组)
+        var cloneArr2 = arr2.slice(0); //结束索引省略的话 相当于截取到最后
+        console.log(cloneArr2);
+        // 通过这种形式拿到的 副本 ,对齐做修改 并不会影响原数组
+        cloneArr2[0] = 10;
+        console.log(arr2);
+
+
+        // splice()  删除或者替换数组当中的元素
+        var arr3 = ['a', 'b', 'c', 'd', 'e'];
+        // 替换   第一个参数 从哪个索引开始替换 ,第二个参数你要替换几个元素, 后边的参数 用谁来替换
+        arr3.splice(1, 2, 10, 11);
+        console.log(arr3); // 修改原数组
+        arr3.splice(3, 1); // 后边的参数不写  相当于删除操作
+        console.log(arr3);
+
+
+        // indexOf()和lastIndexOf()  返回元素在数组中的 索引
+        var arr4 = ['a', 'b', 'b', 'd', 'e'];
+        var index1 = arr4.indexOf('b'); // 1  从前往后匹配
+        var index2 = arr4.lastIndexOf('b'); // 2  从后往前匹配
+        var index3 = arr4.indexOf('f'); // 匹配不到 返回 -1;
+        console.log(index1);
+        console.log(index2);
+        console.log(index3);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // break 用来退出  switch 语句  和  循环语句
+        // break 会立即终止离它最近的那个循环语句。
+        // 找到一个能被3整除的数
+        // 遍历
+        for (var i = 1; i < 100; i++) {
+            if (i % 3 === 0) {
+                console.log('zhaodaole', i);
+                // 退出整个循环
+                break;
+            }
+        }
+
+
+        // continue 退出本次循环
+
+        for (var j = 1; j < 100; j++) {
+            if (j % 3 === 0) {
+                console.log('zhaodaole', j);
+                continue;
+            }
+            console.log('你好', j);
+        }
+
+        // break  和  continue  之后的语句 都不会执行
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数组
+        // 储存数据 某一类数据的集合
+        var arr = [1, 5, 8, 2, 10];
+        var arr1 = [{}, {}, {}];
+        var arr3 = [
+            [1, 2, 3],
+            [4, 5, 6]
+        ];
+
+        // 创建数组
+        var arr3 = new Array(); // 参数 一个? 两个?
+
+        var arr4 = [];
+
+        // 索引(下标) 从0
+
+        // 增删改查 curd
+        // 追加元素 通过索引
+        arr[0] = 100;
+        console.log(arr4); // [100]
+
+        // 修改元素
+        arr[3] = 200;
+        console.log(arr);
+
+        // 删除元素
+        // 从前删除 shigt()  返回值 删除的那个元素
+
+        // 从后删除 pop ()  返回值 删除的那个元素
+
+        // 插入元素
+        // 从前插入  unshift()  参数: 插入的元素 返回值 新数组的长度
+        // 从后插入  push()   参数: 插入的元素 返回值  新数组的长度
+
+        //数组的其他方法
+
+        // 链接 concat() 返回值 : 拼接之后的数组
+        // 不修改原数组
+        var newArr = arr.concat(arr4);
+
+        // console.log(newArr);
+
+        // 数组变成字符串
+        // join(); 参数: 指定链接符(转成字符后, 元素以什么连接)
+        // 不改变原数组 返回值 :  转成的字符串
+        var str = arr.join('-')
+
+        // 字符串变成数组
+        // split(); 参数 指定 字符串 分隔符号
+        // 返回值 转换的数组
+        var email = '123@163.com;789489@qq.com';
+        var emailarr = email.split(';')
+        console.log(emailarr);
+
+        // 遍历数组
+        for (var i = 0; i < arr.length; i++) {
+            arr[i]
+        };
+
+        // 排序算法
+        // 冒泡算法
+        // var arrr = [1, 5, 8, 2, 10];
+        // for (var j = 1; j < arr.length; j++) {
+        //     for (var i = 0; i < arrr.length; i++) {
+        //         if (arrr[i] > arrr[i + 1]) {
+        //             var tem = arr[i];
+        //             arrr[i] = arrr[i + 1];
+        //             arrr[i + 1] = tem;
+
+
+        //         }
+        //     }
+
+        // }
+        var arr = [1, 5, 8, 2, 10];
+
+        // 选择排序
+        // for (var j = 0; j < arr.length - 1; j++) {
+        //     var minindex = j;
+        //     for (var i = j + 1; i < arr.length; i++) {
+        //         if (arr[minindex] > arr[i]) {
+        //             minindex = i;
+        //         }
+        //     }
+
+        //     // 交换位置
+        //     var temp = arr[j];
+        //     arr[j] = arr[minindex];
+        //     arr[minindex] = temp;
+        // }
+
+        // console.log(arr);
+
+
+
+        // 插入排序 
+        for (var i = 1; i < arr.length; i++) {
+            var temp = arr[i];
+            var j = i - 1;
+            while (j >= 0 && temp < arr[j]) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp;
+        }
+        console.log(arr);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建函数
+        // 1. 方式一  集体函数
+        // function 关键字
+        // function 函数名 (参数1, 参数2, ....){
+        //            函数执行代码
+        // }
+
+        // 求任意两个数的和?
+        function add(x, y) {
+            console.log(x + y);
+
+        }
+        add(3, 5);// 当调用的时候 是不是想告诉哦这个函数 求哪两个数的和
+        add(10, 8);
+
+
+        // 方式二 匿名 函数表达式
+        var say = function () {
+            console.log('hello');
+        }
+        // 调用
+        say()
+
+        // 函数如何调用
+        // 函数名();
+
+        // 写在函数里面的代码 不调用 是不会执行的
+        // say  和  say()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 学习方法套路
+        // 1. 了解这个方法是干什么的(功能)
+        // 2. 关注数组的参数(参数的数量, 每个参数的数据类型)
+        // 3. 关注这个方法的返回值(方法执行玩之后,返回给你的结果)
+        var arr = [1, 4, 8, 20, 50, 12];
+        // 在数组的前边插入一个元素
+        // arr[0]=100;
+        // unshift(); 在数组最前面插入一个或者多个元素，
+        // 返回结果为该数组的新长度
+        // 插入元素后 其他元素的索引会以此调整
+        // 修改了原数组
+        // 语法:
+
+        // 数组.unshift(元素);
+        arr.unshift(100);
+        var a = arr.unshift(200); // 
+        console.log(arr);
+        console.log(a);
+
+        // push()
+        // push():  向数组的最后面插入一个或者多个元素, 返回结果为该数组新的长度
+        // 语法:
+        // 数组.push(元素);
+        arr.push(400);
+        console.log(arr);
+
+
+        // pop()
+        // pop(): 删除数组中的最后一个元素, 返回结果为被删除的元素.
+
+        // 语法 :
+
+        // 数组.pop();
+        var b = arr.pop();
+        console.log(arr);
+        console.log(b);
+
+        // shift()
+        // shift(): 删除数组中的第一个元素,  返回结果为被删除的元素
+        // 语法:
+        // 数组.shift();
+        arr.shift();
+        console.log(arr);
+
+        // concat()
+        // concat(): 连接两个或者多个数组 , 返回结果为新的数组. (不会改变原数组)
+
+        // 语法:
+
+        // 新数组 = 数组1.concat(数组2, 数组3...);
+        var arr1 = [1, 4, 5];
+        var arr2 = [2, 5, 8];
+        var newArr = arr1.concat(arr2);
+        console.log(arr1);
+        console.log(newArr);
+
+
+
+        // join()
+        // join(): 将数组转换为字符串, 返回结果为转换后的字符串 (不会改变原来的数组)
+        // join() 方法可以指定一个字符串作为参数, 这个字符串会成为数组中元素的链接符; 如果不指定连接符, 则默认使用 , 作为链接符
+        var str = newArr.join();
+        console.log(str);//1,4,5,2,5,8
+        var str2 = newArr.join('-')
+        console.log(str2);
+
+
+
+        // split()
+        // split():  通过指定分离隔符, 如果省略, 默认以逗号分隔, 将字符串分割为字符串数组.
+
+        // 语法:
+
+        // 新数组 = 原字符串.split(分隔符, 数组长度);
+        // 第二参数, 指定返回数组的最大长度.
+
+        var email = "abc@163.com;cc@126.com;frg@qq.com";
+        var emailArr = email.split(';')
+
+        // var emailarr = email.split(';',2);
+        console.log(emailArr);
+    </script>
+</body>
+
+</html>
