@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://jj/./src/js/lazy.js"],"names":["console","log","asd"],"mappings":";;;;;;;;;;;;;AACAA,OAAO,CAACC,GAAR,CAAY,aAAZ;AACO,SAASC,GAAT,GAAe;AAClBF,SAAO,CAACC,GAAR,CAAY,MAAZ;AACH,C","file":"js/src_js_lazy_js5f84d57881.js","sourcesContent":["\nconsole.log('lazy被加载了...')\nexport function asd (){\n    console.log('l111')\n}\n\n\n"],"sourceRoot":""}
