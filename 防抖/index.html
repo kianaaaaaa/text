@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    function debounce(func, wait,immediate) {
+        let timer = null
+        return function () {
+
+            //this指向debounce
+            let context = this;
+            //即参数，func,wait
+            let args = arguments;
+
+            //如果timer不为null, 清除定时器
+            if (timer) clearTimeout(timer);
+
+            //如果是立即执行
+            if (immediate) {
+                //定义callNow = !timer
+                var callNow = !timer;
+                //定义wait时间后把timer变为null
+                //即在wait时间之后事件才会有效
+                timer = setTimeout(() => {
+                    timer = null;
+                }, wait)
+                //如果callNow为true,即原本timer为null
+                //那么执行func函数
+                if (callNow) func.apply(context, args)
+            } else {
+                //如果是不立即执行
+                //那就是每次重新定时
+                timer = setTimeout(function () {
+                    func.apply(context, args)
+                }, wait);
+            }
+        }
+    }
+
+
+    function handle() {
+        console.log(Math.random());
+    }
+
+    window.addEventListener("mousemove",debounce(handle,1000,true)); // 调用立即执行版本
+    // window.addEventListener("mousemove", debounce(handle, 1000, false)); // 调用非立即执行版本
+
+
+
+</script>
+</html>
