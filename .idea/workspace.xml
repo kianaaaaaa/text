@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db66bf5a-81d5-42bb-94df-018319993770" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/axios/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/axios/login/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/axios/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/axios/http.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="15.5.1" />
-    <property name="javascript.nodejs.core.library.typings.version" value="14.14.27" />
+    <property name="javascript.nodejs.core.library.typings.version" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -58,7 +55,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1613119354270</updated>
-      <workItem from="1613119355322" duration="5760000" />
+      <workItem from="1613119355322" duration="6381000" />
+      <workItem from="1613876775393" duration="266000" />
+      <workItem from="1613877056421" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1613121993631</created>
@@ -90,6 +89,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
