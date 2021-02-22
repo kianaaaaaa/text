@@ -17,8 +17,25 @@ export default function (sel, data, c) {
         return vnode(sel, data, undefined, c, undefined)
     } else if (Array.isArray(c)) {
         // 说明现在调用h函数是形态2
+        let children = [];
+        // 遍历c
+        for (let i = 0; i < c.length; i++) {
+            // 检查c[i] 必须是一个对象
+            // console.log(typeof c[i] == 'object')
+            // console.log(c[i].hasOwnProperty('sel'))
+            if (!(typeof c[i] == 'object' && c[i].hasOwnProperty('sel')))
+                throw new Error("传入的数组中有想不是h函数")
+
+            // 收集
+            children.push(c[i])
+        }
+        // 循环结束了,就说明children收集完毕了
+        return vnode(sel, data, children, undefined, undefined)
     } else if (typeof c == 'object' && c.hasOwnProperty('sel')) {
         // 说明现在调用h函数是形态3
+        let children = [c];
+        return vnode(sel, data, children, undefined, undefined)
+
     } else {
         throw new Error("传入的第三参数类型部队")
 
