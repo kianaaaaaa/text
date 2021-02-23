@@ -1,38 +1,52 @@
-import { init } from 'snabbdom/init'
-import { classModule } from 'snabbdom/modules/class'
-import { propsModule } from 'snabbdom/modules/props'
-import { styleModule } from 'snabbdom/modules/style'
-import { eventListenersModule } from 'snabbdom/modules/eventlisteners'
-import  h  from './mysnabbdom/h' // 用于创建vnode的辅助函数
+import h from '../src/mysnabbdom/h'
+import patch from "../src/mysnabbdom/patch.js";
 
-const patch = init([ // 带有选定模块的初始化补丁功能
-    classModule, // makes it easy to toggle classes
-    propsModule, // for setting properties on DOM elements
-    styleModule, // handles styling on elements with support for animations
-    eventListenersModule, // attaches event listeners
-])
+
 const btn = document.getElementById('btn')
-const container =  document.getElementById('container')
+const container = document.getElementById('container')
 
 
-const Vnode = h('ul',{},[
-    h('li', {},'A'),
-    h('li', {},'B'),
-    h('li', {},'D'),
-])
+// const nodes = h('div', {}, [
+//     h('p', {}, '哈哈'),
+//     h('p', {}, '嘻嘻'),
+//     h('p', {}, '呵呵'),
+//     h('p', {}, '啾啾'),
+//     h('p', {}, h('span', {}, 'A')),
+//     h('p', {}, [
+//         h('span', {}, 'A'),
+//         h('span', {}, 'B'),
+//         h('span', {}, 'C'),
+//     ]),
+// ])
+//
 
-patch(container,Vnode)
+// const myVonde1 = h('ul', {}, [
+//     h('li', {}, '西瓜'),
+//     h('li', {}, '苹果'),
+//     h('li', {}, [
+//         h('div', {}, [
+//             h('p', {}, '嘻嘻'),
+//             h('p', {}, '哈哈'),
+//             h('p', {}, '啾啾'),
+//         ])
+//     ])
+// ])
 
-const Vnode2 = h('ul',{},[
-    h('li', {},'A'),
-    h('li', {},'B'),
-    h('li', {},'D'),
-    h('li', {},'C'),
-    h('li', {},'E'),
-])
 
+const nodes = h('ul', {}, [
+    h('p', {}, '哈哈'),
+    h('p', {}, '嘻嘻'),
+    h('p', {}, '呵呵'),
+    h('p', {}, '啾啾'),
+    h('div',{},[
+        h('ol',{},[
+            h('li', {}, '木木哒'),
+            h('li', {}, '哦啦哦啦'),
+            h('li', {}, '木大木大'),
 
-btn.onclick = function() {
-    console.log(1)
-    patch(Vnode,Vnode2)
-}
+        ])
+    ])
+    ]
+)
+
+patch(container, nodes)
