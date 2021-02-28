@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>123</h1>
+<h1>233</h1>
+<h1>1444</h1>
+<h1>555</h1>
+</body>
+<script src="./jq-demo.js"></script>
+<script>
+
+    Function.prototype.bind1 = function () {
+        const args = Array.prototype.slice.call(arguments)
+        const t = args.shift()
+        const self = this
+        return function () {
+            return self.apply(t, self)
+        }
+    }
+
+
+    function fin1(a, b, c) {
+        console.log(this)
+        console.log(a, b, c)
+
+    }
+
+    const fn2 = fin1.bind({x: 100}, 10, 20, 30)
+    const res = fn2()
+    console.log(res)
+
+    // let $ = new jQuery('h1')
+    // console.log($.get(1))
+    // $.on('click',(ele)=>{
+    //     console.log(ele)
+    // })
+</script>
+</html>
