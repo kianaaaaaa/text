@@ -8,7 +8,7 @@
 <h1>123</h1>
 <h1>233</h1>
 <h1>1444</h1>
-<h1>555</h1>
+<h1 id="dd">555</h1>
 </body>
 <script src="./jq-demo.js"></script>
 <script>
@@ -38,7 +38,16 @@
     // $.on('click',(ele)=>{
     //     console.log(ele)
     // })
-
-
+    document.addEventListener('mouseup',(e) =>{
+        console.log()
+        var _con = document.getElementById('dd')
+        if(_con) {
+            if(!_con.contains(e.target)) {
+            
+            }
+        }
+    })
+      let jj =  new Array(3)
+    console.log(jj)
 </script>
 </html>
