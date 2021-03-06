@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    const obj = {
+        a: '123',
+        b: 12343,
+        c: [1, 2, 3, 4, 5],
+        f: {
+            a: '123'
+        }
+    }
+
+    function copy(ags) {
+        if (typeof ags != "object" || typeof ags == null) {
+            return ags
+        }
+        let obj
+        ags instanceof Array ? obj = [] : obj = {}
+        for (let i in ags){
+            if (ags.hasOwnProperty(i)) {
+                obj[i] =  ags[i]
+            }
+        }
+        return obj
+    }
+    console.log(    copy(obj))
+
+</script>
+</html>
