@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣杯布局</title>
+    <script src="../../测试/手写bind,call,appley.js"></script>
+</head>
+<style>
+    div{
+        text-align: center;
+    }
+    #footer,
+    #header{
+        width: 100%;
+        background-color: darkred;
+    }
+    #center{
+        padding:0 200px
+    }
+    .float{
+        float: left
+    }
+    .both{
+        clear: both;
+    }
+    .min{
+        width: 100%;
+    }
+    .left,
+    .right{
+        width: 200px;
+        background-color: black;
+    }
+    .left{
+        position: relative;
+        left: -200px;
+        margin-left: -100%;
+    }
+    .right{
+        margin-right: -100%;
+    }
+</style>
+<body>
+
+        <div id="header">header</div>
+        <div id="center">
+            <div class="min float">min</div>
+            <div class="left float">left</div>
+            <div class="right float">right</div>
+        </div>
+        <div id="footer" class="both">footer</div>
+
+
+</body>
+<script>
+
+    /*手写bind, apply ,call*/
+    Object.prototype._call = function (thisArg = window,...args){
+        thisArg.fn =  this
+        let fn  = thisArg.fn(...args)
+        delete thisArg.fn
+        return fn
+
+    }
+    Object.prototype._apply = function (context = window){
+
+        let args = arguments[1]
+
+        context.func = this
+        let f = args ? context.func(...args) :context.func();
+        delete context.func
+        return f
+
+    }
+    //变更函数调用者示例
+    function foo(n) {
+        console.log(this[n])
+    }
+
+    // 测试
+    const obj = {
+        name: '写代码像蔡徐抻'
+    }
+
+        foo._call(obj,'name','2')
+
+</script>
+</html>
