@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsx语法规则</title>
+</head>
+<style>
+    .color{
+        background-color: red;
+    }
+</style>
+<body>
+<div id="test"></div>
+</body>
+<!--核心库-->
+<script src="../js/react.development.js"></script>
+<!--扩展库-->
+<script src="../js/react-dom.development.js"></script>
+<!--es6转es5-->
+<script src="../js/babel.min.js"></script>
+<!--注意type为babel-->
+<script type="text/babel">
+    const myid = 'title'
+    const mydata = 'hello react!'
+    const Vdom = (
+        <div>
+            <h2 className="color" id={myid}>
+                <span style={{color:'pink'}}>{mydata}</span>
+            </h2>
+            <label>
+                <input type="text"/>
+                <button>按钮</button>
+            </label>
+        </div>
+
+    )
+    ReactDOM.render(Vdom, document.querySelector('#test'))
+
+    /*
+    *  1.定义虚拟dom 不要用引号
+    *  2.混入js 表达式用{}
+    *  3.定义样式 应该用className
+    *  4.内联样式 需要{{}}
+    *   5. 只能有一个根节点
+    * 6. 标签必须闭合
+    * */
+</script>
+</html>

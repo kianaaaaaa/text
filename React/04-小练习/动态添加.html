@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsx语法规则</title>
+</head>
+<style>
+    .color{
+        background-color: red;
+    }
+</style>
+<body>
+<div id="test"></div>
+</body>
+<!--核心库-->
+<script src="../js/react.development.js"></script>
+<!--扩展库-->
+<script src="../js/react-dom.development.js"></script>
+<!--es6转es5-->
+<script src="../js/babel.min.js"></script>
+<!--注意type为babel-->
+<script type="text/babel">
+    const data = ['angular','vue','react']
+    const Vdom = (
+        <div>
+            <h2>前端框架列表</h2>
+            <ul>
+                {
+                    data.map(item => <li key={item}>{item}</li>)
+                }
+            </ul>
+        </div>
+
+    )
+    ReactDOM.render(Vdom, document.querySelector('#test'))
+
+</script>
+</html>

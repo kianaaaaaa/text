@@ -54,6 +54,27 @@
 </body>
 <script>
 
+
+        function copy (context){
+            if (typeof context  !== 'object' || typeof context == null){
+                return context
+            }
+            let obj
+            if (context instanceof Array){
+                obj = []
+            }else{
+                obj={}
+            }
+            for (let i in context){
+                if (context.hasOwnProperty(i)){
+                    obj[i] = context[i]
+                }
+            }
+            return obj
+        }
+
+
+
     /*手写bind, apply ,call*/
     Object.prototype._call = function (thisArg = window,...args){
         thisArg.fn =  this
