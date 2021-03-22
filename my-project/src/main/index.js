@@ -20,7 +20,7 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 583,
     useContentSize: true,
     frame: false,
     title: 'loge',

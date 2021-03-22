@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 	  <div class="fake-title-bar">
-	
+		  <button @click="asd">asd</button>
 		  <div class="handle-bar" v-if="os === 'win32'"> <!-- 如果是windows系统 就加上模拟的操作按钮-->
 			  <i class="el-icon-minus" @click="minimizeWindow"></i>
 			  <i class="el-icon-close" @click="closeWindow"></i>
@@ -9,7 +9,7 @@
 	  </div>
 	 
     <router-view></router-view>
-	  <button @click="asd">asd</button>
+
   </div>
 </template>
 
@@ -78,10 +78,8 @@
 
   /* CSS */
   .fake-title-bar {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
 	  width: 100%;
+	  height:20px;
 	  background-color: red;
 	  -webkit-app-region: drag
   }
@@ -91,5 +89,7 @@
   input {
 	  -webkit-app-region: no-drag;
   }
-
+  body {
+	  overflow-x: hidden;
+  }
 </style>
