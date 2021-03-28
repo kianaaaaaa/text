@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+    }
+
+    body {
+        background-color: #232B33;
+    }
+
+    nva {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    ul {
+        display: flex;
+        position: relative;
+    }
+
+    ul li {
+        width: 120px;
+        line-height: 40px;
+        text-align: center;
+    }
+
+    ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    ul .silder {
+
+        width: 100px;
+        height: 40px;
+        left: 10px;
+        bottom: 0;
+        z-index: -1;
+        position: absolute;
+        background-color: rgba(83, 81, 228);
+        border-radius: 10px;
+        transition: all ease 0.4s;
+    }
+
+    li:nth-child(1):hover~.silder {
+        left: 10px;
+    }
+
+    li:nth-child(2):hover~.silder {
+        left: 128px;
+    }
+
+    li:nth-child(3):hover~.silder {
+        left: 248px;
+    }
+
+    li:nth-child(4):hover~.silder {
+        left: 368px;
+    }
+
+    li:nth-child(5):hover~.silder {
+        left: 488px;
+    }
+</style>
+
+<body>
+    <nva>
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">个人中心</a></li>
+            <li><a href="#"> 购物车</a></li>
+            <li><a href="#">商品中心</a></li>
+            <li><a href="#">关于我们</a></li>
+            <div class="silder"></div>
+        </ul>
+    </nva>
+</body>
+
+</html>
