@@ -21,13 +21,13 @@ fs.readdir(path, (err, data) => {
 */
 const fs = require('fs');
 function  isDir(path){
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
         fs.stat(path, (error, stats) => {
             if (error){
                 console.log(error)
                 return
             }
-            stats.isDirectory() ? resolve(true):resolve(false)
+             resolve(stats.isDirectory())
         })
     })
 }
