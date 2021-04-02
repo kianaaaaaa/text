@@ -14,12 +14,12 @@ function getMime(extname){
     }
 }
 
-function getFileMime (){
-    fs.red(()=>{
-
-    })
-
-}
+// function getFileMime (){
+//     fs.red(()=>{
+//
+//     })
+//
+// }
 
 
 module.exports = {

@@ -1,6 +1,6 @@
 const  http = require('http');
 const fs = require('fs');
-const com = require('./common') // 处理content-Type 来加载css js 文件
+const {getMime} = require('./common') // 处理content-Type 来加载css js 文件
 const  path = require('path')
 
 http.createServer((req,res)=>{
@@ -21,7 +21,7 @@ http.createServer((req,res)=>{
                 res.end('这个页面不存在')
                 return
             }
-            res.writeHead(200,{'Content-Type':`${com(extname)};charset=utf-8`})
+            res.writeHead(200,{'Content-Type':`${getMime(extname)};charset=utf-8`})
 
             res.end(data) // 读取文件
         })
