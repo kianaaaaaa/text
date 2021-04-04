@@ -14,16 +14,21 @@ function getMime(extname){
     }
 }
 
-// function getFileMime (){
-//     fs.red(()=>{
-//
-//     })
-//
-// }
+function getFileMime (extname){
+    return new Promise((resolve, reject) =>{
+        fs.readFile('./mime/mime.json',(err, data)=>{
+          err&&reject(err);
+            let mime = JSON.parse(data.toString())
+            resolve(mime[extname])
+        })
+    })
+
+}
 
 
 module.exports = {
-    getMime
+    getMime,
+    getFileMime
 }
 
 
