@@ -14,8 +14,14 @@
 </template>
 
 <script>
+	import os from 'os'
   export default {
     name: 'my-project',
+	  data(){
+    	return{
+		    os
+	    }
+	  },
 	  mounted(){
 		  this.add()
 	  },
@@ -58,9 +64,7 @@
 			    let menu = Menu.buildFromTemplate(template)
 			    Menu.setApplicationMenu(menu)
 			    // menu.popup()
-			    Tray.on('right-click', () => {
-				    Tray.popUpContextMenu(template)
-			    })
+			   
 		    },
 		  asd(){
 			    const {ipcRenderer} = require('electron')

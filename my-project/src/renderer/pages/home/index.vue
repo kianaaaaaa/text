@@ -1,4 +1,4 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
 	<div id="app">
 		<router-link to="/" tag="el-link" type="primary">返回主页</router-link>
 		<span>饿了么组件</span>
@@ -26,16 +26,48 @@
 			<el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
 			<el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
 		</el-row>
+		<button @click="addData">添加</button>
+		<button @click="delData">删除</button>
+		<button @click="del1">添加新字段</button>
+	
 	</div>
 </template>
 
 <script>
+
+import logger from "../../utils/logger";
+import db from "../../utils/db";
+
 export default {
 	name: "index",
 	data() {
 		return {
 			msg: "这是第一个组件",
 			value:''
+		}
+	},
+	methods:{
+		addData(){
+				let  insertSQL  = `INSERT INTO list (name,create_time,standard_buy_unit_price) VALUES ('搜嘎','21999993','1233')`
+			this.$db.run(insertSQL,err=>{
+				if (err) {
+					console.log(err);
+				}
+				console.log('添加!')
+			})
+		},
+		delData(){
+			this.$db.run(`DELETE FROM list`,err=>{
+				if (err) {
+					console.log(err);
+				}
+				console.log('删除成功!')
+			})
+		}	,
+		del1(){
+			this.$db.run(`ALTER TABLE list ADD  datatype`, err => {
+				logger(err);
+			});
 		}
 	}
 }

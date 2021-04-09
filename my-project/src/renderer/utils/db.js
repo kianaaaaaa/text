@@ -4,7 +4,7 @@ import sq3 from 'sqlite3';
 import logger from './logger';
 import { docDir } from './settings';
 // 将数据存至系统用户目录，防止用户误删程序
-export const dbPath = path.join(docDir, 'data.myProject');
+export const dbPath = path.join(docDir, 'myProject.sqlite3');
 fse.ensureFileSync(dbPath);
 console.log(sq3);
 const sqlite3 = sq3.verbose();
@@ -42,6 +42,18 @@ db.serialize(() => {
         logger(err);
     });
 
+    db.run(`CREATE TABLE list(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    create_time INTEGER NOT NULL,
+    standard_buy_unit_price DECIMAL(15,2) NOT NULL,
+    )`, err => {
+        logger(err);
+    });
+
+    db.run(`ALTER TABLE list ADD 是傻逼 datatype`, err => {
+        logger(err);
+    });
     /**
      * 进出明细表 GOODS_DETAIL_LIST
      * goods_id 物品id
