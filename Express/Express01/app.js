@@ -6,7 +6,7 @@ app.use((req, res, next) => {
     console.log(new Date()) // 路由中间键
     next();
 });
-app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, 'static')))
 
 app.get('/',(req,res) =>{
     res.send('首页')
