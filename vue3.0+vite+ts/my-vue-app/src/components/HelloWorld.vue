@@ -19,6 +19,10 @@ defineProps({
   msg: String
 })
 
+
+fetch("/api/users")
+		.then(response =>JSON.stringify(response))
+		.then(json => console.log(json));
 // 派发事件
 const emit = defineEmit(['myclick']);
 const emitclick = () => {
