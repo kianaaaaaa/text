@@ -12,13 +12,13 @@
 </template>
 
 <script setup>
-import { defineProps, reactive ,defineEmit } from 'vue'
+import { useContext,defineProps,defineEmit,ref } from 'vue'
 import topbar from '@/components/topbar.vue'
 
 defineProps({
   msg: String
 })
-
+const ctx = useContext()
 
 fetch("/api/users")
 		.then(response =>JSON.stringify(response))
@@ -29,9 +29,14 @@ const emitclick = () => {
 	emit('myclick','事件派发');
 }
 
-const state = reactive({
-	count: 0
+const state = ref({
+	count:0
 })
+
+ctx.expose({
+	a:'123'
+})
+
 </script>
 
 <style scoped>
