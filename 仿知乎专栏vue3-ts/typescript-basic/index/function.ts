@@ -1,0 +1,11 @@
+function add(x: number, y: number, z?: number): number {
+
+    if (typeof z === "number") {
+        return x + y + z
+    }
+    return x + y
+}
+
+let result = add(1, 2)
+
+let add2: (x:number,y: number, z?: number) => number = add

@@ -8,32 +8,44 @@
 	<topbar />
   <button @click="state.count++">count is: {{ state.count }}</button>
   <button @click="emitclick">派发事件</button>
-  
+ <input type="text" @input="first" >
+ {{text}}
 </template>
 
 <script setup>
-import { useContext,defineProps,defineEmit,ref } from 'vue'
+import { useContext,defineProps,defineEmit,ref,inject } from 'vue'
 import topbar from '@/components/topbar.vue'
 
 defineProps({
   msg: String
 })
+
+const text = ref('99999999')
+const state = ref({
+	count:0
+})
 const ctx = useContext()
+const emit = defineEmit(['myclick',"update:title"]);
+
 
 fetch("/api/users")
 		.then(response =>JSON.stringify(response))
 		.then(json => console.log(json));
 // 派发事件
-const emit = defineEmit(['myclick']);
+
+
 const emitclick = () => {
 	emit('myclick','事件派发');
 }
+const first = (e)=>{
+   text.value = e.target.value
+}
+let NAME = inject("aa")
+    console.log(NAME) // 蛙
 
-const state = ref({
-	count:0
-})
 
-ctx.expose({
+
+ctx.expose({ //返回
 	a:'123'
 })
 
