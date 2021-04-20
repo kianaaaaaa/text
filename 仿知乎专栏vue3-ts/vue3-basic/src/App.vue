@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-import {ref} from 'vue'
 import useMousePosition from "@/hooks/useMousePosition";
 const {x,y} = useMousePosition()
 </script>

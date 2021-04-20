@@ -1,9 +1,6 @@
-import {ref, onMounted, onUnmounted} from 'vue'
 
-
-
-
-function useMousePosition():any{
+import {ref,Ref,onMounted, onUnmounted} from '@vue/runtime-core'
+ const useMousePosition = ():{ x: Ref<number>,y: Ref<number>}=>{
     const x = ref(0)
     const y = ref(0)
     const updateMouse = (e:MouseEvent) => {
