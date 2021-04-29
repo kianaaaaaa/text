@@ -17,5 +17,4 @@ import {ref,Ref,onMounted, onUnmounted} from '@vue/runtime-core'
         x , y
     }
 }
-
 export default useMousePosition
