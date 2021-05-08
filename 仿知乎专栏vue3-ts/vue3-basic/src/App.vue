@@ -3,18 +3,36 @@
 		<router-link to="/">Home</router-link>
 		<router-link to="/about">About</router-link>
 	</div>
-	<router-view/>
+	<suspense>
+			<router-view/>
+	</suspense>
+	
 	<h1> {{ x }},{{ y }}</h1>
 	<h1 v-if="lodDing"> loding!....</h1>
 	<img @click="open()" v-if="!lodDing" :src="result[0].url" alt="result"/>
 	<model :isOpen="modalIsOpen" @close-modal=close()></model>
+	<!--	<Suspense>-->
+	<!--		<template #default>-->
+	
+	<suspense>
+		<dogshow></dogshow>
+	</suspense>
+	
+	<!--		</template>-->
+	<!--		<template #fallback>-->
+	<!--		 <h2>login....</h2>-->
+	<!--		</template>-->
+	<!--	</Suspense>-->
 </template>
 
 <script lang="ts" setup>
+import axios from "axios";
 import useMousePosition from "@/hooks/useMousePosition";
 import useURLlodaer from "@/hooks/useURLlodaer";
+import dogshow from "@/components/DogShow";
 import model from "@/components/Modal";
-import {watch, defineComponent, ref} from "vue";
+import {watch, ref, onMounted} from "vue";
+
 
 interface DogResult {
 	message: string,
@@ -36,6 +54,7 @@ watch(result, () => {
 	}
 })
 const {x, y} = useMousePosition()
+
 
 /*弹窗*/
 const modalIsOpen = ref(false)
