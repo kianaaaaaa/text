@@ -1,8 +1,8 @@
 <template>
   <el-row :gutter="20">
     <el-col :span="8" v-for="column in list" :key="column.id" class="el-row--flex">
-      <el-card :body-style="{ padding: '10px' }">
-        <img :src="column.active" :alt="column.title" class="img">
+      <el-card :body-style="{ padding: '0' }">
+        <img :src="column.active" :alt="column.title" class="image">
         <div style="padding: 14px;">
           <span>{{ column.title }}</span>
           <div class="bottom">
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, PropType } from 'vue'
+import { computed, defineProps, PropType } from 'vue'
 
 export interface ColumnProps {
   id: number,
@@ -25,12 +25,22 @@ export interface ColumnProps {
   description: string
 }
 
-defineProps({
+const props = defineProps({
   list: {
     type: Array as PropType<ColumnProps[]>,
     require: true
   }
 })
+
+const activeMenu = computed(() => {
+  return props.list.map(item => {
+    if (!item.active) {
+      item.active = require('@/assets/logo.png')
+    }
+    return item
+  })
+})
+console.log(activeMenu.value)
 </script>
 
 <style scoped>
@@ -53,11 +63,14 @@ defineProps({
 }
 
 .el-row--flex {
-  margin-bottom: 20px;
+  min-width: 200px;
+  height: 200px;
 }
 
 .image {
-  width: 100%;
+  width: 100px;
+  border-radius: 50px;
+  margin: 0 auto;
   display: block;
 }
 </style>

@@ -1,12 +1,29 @@
 <template>
-
-  <Column-list :list='list'></Column-list>
-
+  <div class="min">
+    <Global-hader :user="user"></Global-hader>
+    <Column-list :list='list' class="mt-5"></Column-list>
+  </div>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import ColumnList, { ColumnProps } from '@/components/ColumnList.vue' // @ is an alias to /src
+import GlobalHader, { userProps } from '@/components/GlobalHader.vue' // @ is an alias to /src
+import 'bootstrap/dist/css/bootstrap.min.css'
 
+/*
+* 头部栏
+* */
+const userData: userProps = {
+  isLogin: false,
+  name: 'kiana'
+}
+
+const user = userData
+
+/*
+*  列表栏
+* */
 const testData: ColumnProps[] = [
   {
     id: 1,
@@ -32,4 +49,11 @@ const testData: ColumnProps[] = [
 ]
 const list = testData
 
+console.log()
 </script>
+<style>
+.min {
+  max-width: 90%;
+  margin: 0 auto;
+}
+</style>
