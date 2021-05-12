@@ -7,7 +7,11 @@
         <div class="btn btn-outline-light me-2" type="submit">注册</div>
       </form>
       <form class="d-flex" v-else>
-        <Dropdown :name="list.name"></Dropdown>
+        <Dropdown :name="`你好 ${list.name}`">
+          <Dropdown-item disable>设置</Dropdown-item>
+          <Dropdown-item>会员中心</Dropdown-item>
+          <Dropdown-item>设置</Dropdown-item>
+        </Dropdown>
       </form>
     </div>
   </nav>
@@ -16,6 +20,7 @@
 <script lang="ts" setup>
 import { reactive, defineProps, PropType } from 'vue'
 import Dropdown from '@/components/Dropdown.vue' // @ is an alias to /src
+import DropdownItem from '@/components/DropdownItem.vue'
 
 export interface userProps {
   id?: number,

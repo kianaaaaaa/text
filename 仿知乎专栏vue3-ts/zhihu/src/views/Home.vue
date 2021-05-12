@@ -1,14 +1,38 @@
 <template>
   <div class="min">
     <Global-hader :user="user"></Global-hader>
-    <Column-list :list='list' class="mt-5"></Column-list>
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">用户名</label>
+        <Validata-input :rules="emailRules"></Validata-input>
+      </div>
+<!--      <div class="mb-3">-->
+<!--        <label for="exampleInputEmail1" class="form-label">用户名</label>-->
+<!--        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"-->
+<!--               @blur="vaildataEmail" v-model="emailRef.val">-->
+<!--        <div class="form-text " v-if="emailRef.error">{{ emailRef.massage }}</div>-->
+<!--      </div>-->
+<!--      <div class="mb-3">-->
+<!--        <label for="exampleInputPassword1" class="form-label">密码</label>-->
+<!--        <input type="password" class="form-control" id="exampleInputPassword1">-->
+<!--      </div>-->
+<!--      <div class="mb-3 form-check">-->
+<!--        <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+<!--        <label class="form-check-label" for="exampleCheck1">对我进行检查</label>-->
+<!--      </div>-->
+      <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+    <Column-list :list='list' class="mt-5" v-if="false"></Column-list>
+
   </div>
+
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import ColumnList, { ColumnProps } from '@/components/ColumnList.vue' // @ is an alias to /src
-import GlobalHader, { userProps } from '@/components/GlobalHader.vue' // @ is an alias to /src
+import { reactive } from 'vue'
+import ColumnList, { ColumnProps } from '@/components/ColumnList.vue'
+import GlobalHader, { userProps } from '@/components/GlobalHader.vue'
+import ValidataInput, { RulesProp } from '@/components/Validatainput.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 /*
@@ -21,6 +45,38 @@ const userData: userProps = {
 
 const user = userData
 
+/*
+* 登录
+* */
+const emailRules: RulesProp = [
+  {
+    type: 'required',
+    message: '电子邮箱地址不能为空'
+  },
+  {
+    type: 'email',
+    message: '请输入正确的邮箱格式'
+  }
+]
+const emailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+const emailRef = reactive({
+  val: '',
+  error: false,
+  massage: ''
+})
+const vaildataEmail = () => {
+  if (emailRef.val.trim() === '') {
+    console.log(emailRef.val)
+    emailRef.error = true
+    emailRef.massage = '邮箱不能为空'
+  } else if (!emailReg.test(emailRef.val)) {
+    emailRef.error = true
+    emailRef.massage = '邮箱格式错误'
+  } else {
+    emailRef.error = false
+    emailRef.massage = ''
+  }
+}
 /*
 *  列表栏
 * */
