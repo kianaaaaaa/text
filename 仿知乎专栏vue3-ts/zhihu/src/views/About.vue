@@ -1,11 +1,19 @@
 <template>
-  <div class="about">
-    <h1>{{ name }}</h1>
-  </div>
+  asdsa
 </template>
-<script lang="ts" setup>
-import { ref } from 'vue'
 
-// eslint-disable-next-line no-global-assign,no-labels
-ref: name = '张三'
+<script lang="ts" setup>
+import { useContext } from 'vue'
+
+const { expose } = useContext()
+
+const clear = () => {
+  console.log('123123')
+}
+
+expose({ clear })
 </script>
+
+<style scoped>
+
+</style>

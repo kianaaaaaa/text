@@ -1,20 +1,21 @@
 <template>
   <input
-    type="email"
+    v-bind="$attrs"
     class="form-control"
     :class="{'is-invalid': inputRef.error}"
-    id="exampleInputEmail1"
     aria-describedby="emailHelp"
-    v-model="inputRef.val"
+    :value="inputRef.val"
     @blur="validateInput"
+    @input="updateValue"
   >
   <text class="invalid-feedback" v-if="inputRef.error">{{ inputRef.message }}</text>
 </template>
 
 <script lang="ts" setup>
-import { reactive, PropType, defineProps } from 'vue'
+import { reactive, defineProps, useContext, PropType } from 'vue'
 
 const emailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+const ctx = useContext()
 
 export interface RuleProp {
   type: 'required' | 'email',
@@ -23,13 +24,16 @@ export interface RuleProp {
 
 export type RulesProp = RuleProp[]
 const props = defineProps({
-  rules: Array as PropType<RulesProp>
+  rules: Array as PropType<RulesProp>,
+  modelValue: String
 })
+
 const inputRef = reactive({
-  val: '',
+  val: props.modelValue || '',
   error: false,
   message: ''
 })
+
 const validateInput = () => {
   if (props.rules) {
     const allPassed = props.rules.every(rule => {
@@ -50,6 +54,11 @@ const validateInput = () => {
     inputRef.error = !allPassed
     return allPassed
   }
+}
+const updateValue = (e: KeyboardEvent) => {
+  const targetValue = (e.target as HTMLInputElement).value
+  inputRef.val = targetValue
+  ctx.emit('update:modelValue', targetValue)
 }
 
 </script>
