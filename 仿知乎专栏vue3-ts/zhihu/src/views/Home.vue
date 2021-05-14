@@ -1,17 +1,19 @@
 <template>
   <div class="min">
     <Global-hader :user="user"></Global-hader>
-    <form>
+    <validate-form @form_submit="onFromSubmit" ref="validateRef">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label" @click="dianji">用户名</label>
-        <Validata-input type="email" :rules="emailRules" v-model="emailVal" placeholder="请输入邮箱"></Validata-input>
+        <Validata-input ref="inputRef" type="email" :rules="emailRules" v-model="emailVal" placeholder="请输入邮箱"></Validata-input>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">密码</label>
         <Validata-input type="password" placeholder="请输入密码"></Validata-input>
       </div>
-      <button type="submit" class="btn btn-primary">提交</button>
-    </form>
+      <template #submit>
+        <span class="btn btn-danger">submit</span>
+      </template>
+    </validate-form>
     <Column-list :list='list' class="mt-5" v-if="false"></Column-list>
   </div>
 
@@ -21,6 +23,7 @@
 import { ref } from 'vue'
 import ColumnList, { ColumnProps } from '@/components/ColumnList.vue'
 import GlobalHader, { userProps } from '@/components/GlobalHader.vue'
+import validateForm from '@/components/validateForm.vue'
 import ValidataInput, { RulesProp } from '@/components/Validatainput.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -38,7 +41,7 @@ const user = userData
 * 登录
 * */
 const hw = ref(null)
-
+const emailVal = ref(null)
 const emailRules: RulesProp = [
   {
     type: 'required',
@@ -77,7 +80,13 @@ const testData: ColumnProps[] = [
   }
 ]
 const list = testData
-
+/*
+* 表单验证
+* */
+const inputRef = ref<any>(null)
+const onFromSubmit = (result: Boolean) => {
+  console.log(inputRef.value.validateInput())
+}
 </script>
 <style>
 .min {

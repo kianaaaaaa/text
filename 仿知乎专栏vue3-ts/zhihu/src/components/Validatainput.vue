@@ -54,6 +54,7 @@ const validateInput = () => {
     inputRef.error = !allPassed
     return allPassed
   }
+  return true
 }
 const updateValue = (e: KeyboardEvent) => {
   const targetValue = (e.target as HTMLInputElement).value
@@ -61,6 +62,9 @@ const updateValue = (e: KeyboardEvent) => {
   ctx.emit('update:modelValue', targetValue)
 }
 
+ctx.expose({
+  validateInput
+})
 </script>
 
 <style scoped>
