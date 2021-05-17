@@ -1,18 +1,19 @@
 <template>
   <input
     v-bind="$attrs"
-    class="form-control"
     :class="{'is-invalid': inputRef.error}"
-    aria-describedby="emailHelp"
     :value="inputRef.val"
+    aria-describedby="emailHelp"
+    class="form-control"
     @blur="validateInput"
     @input="updateValue"
   >
-  <text class="invalid-feedback" v-if="inputRef.error">{{ inputRef.message }}</text>
+  <text v-if="inputRef.error" class="invalid-feedback">{{ inputRef.message }}</text>
 </template>
 
 <script lang="ts" setup>
-import { reactive, defineProps, useContext, PropType } from 'vue'
+import { defineProps, onMounted, PropType, reactive, useContext } from 'vue'
+import mitt from '@/hooks/mitt.ts'
 
 const emailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
 const ctx = useContext()
@@ -61,6 +62,10 @@ const updateValue = (e: KeyboardEvent) => {
   inputRef.val = targetValue
   ctx.emit('update:modelValue', targetValue)
 }
+
+onMounted(() => {
+  mitt.emit('foo', inputRef.val)
+})
 
 ctx.expose({
   validateInput

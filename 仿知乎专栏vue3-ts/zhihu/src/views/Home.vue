@@ -1,26 +1,28 @@
 <template>
   <div class="min">
     <Global-hader :user="user"></Global-hader>
-    <validate-form @form_submit="onFromSubmit" ref="validateRef">
+    <validate-form ref="validateRef" @form_submit="onFromSubmit">
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label" @click="dianji">用户名</label>
-        <Validata-input ref="inputRef" type="email" :rules="emailRules" v-model="emailVal" placeholder="请输入邮箱"></Validata-input>
+        <label class="form-label" for="exampleInputEmail1" @click="dianji">用户名</label>
+        <Validata-input ref="inputRef" v-model="emailVal" :rules="emailRules" placeholder="请输入邮箱"
+                        type="email"></Validata-input>
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">密码</label>
-        <Validata-input type="password" placeholder="请输入密码"></Validata-input>
+        <label class="form-label" for="exampleInputPassword1">密码</label>
+        <Validata-input v-model="passwordVal" :rules="passwordRules" placeholder="请输入密码"
+                        type="password"></Validata-input>
       </div>
       <template #submit>
         <span class="btn btn-danger">submit</span>
       </template>
     </validate-form>
-    <Column-list :list='list' class="mt-5" v-if="false"></Column-list>
+    <Column-list v-if="false" :list='list' class="mt-5"></Column-list>
   </div>
 
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import ColumnList, { ColumnProps } from '@/components/ColumnList.vue'
 import GlobalHader, { userProps } from '@/components/GlobalHader.vue'
 import validateForm from '@/components/validateForm.vue'
@@ -41,7 +43,7 @@ const user = userData
 * 登录
 * */
 const hw = ref(null)
-const emailVal = ref(null)
+const emailVal = ref('123@test.com')
 const emailRules: RulesProp = [
   {
     type: 'required',
@@ -50,6 +52,13 @@ const emailRules: RulesProp = [
   {
     type: 'email',
     message: '请输入正确的邮箱格式'
+  }
+]
+const passwordVal = ref('123')
+const passwordRules: RulesProp = [
+  {
+    type: 'required',
+    message: '密码不能为空'
   }
 ]
 
