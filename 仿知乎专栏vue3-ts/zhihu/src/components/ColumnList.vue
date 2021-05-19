@@ -1,22 +1,21 @@
 <template>
-  <el-row :gutter="20">
-    <el-col :span="8" v-for="column in list" :key="column.id" class="el-row--flex">
-      <el-card :body-style="{ padding: '0' }">
-        <img :src="column.active" :alt="column.title" class="image">
-        <div style="padding: 14px;">
-          <span>{{ column.title }}</span>
-          <div class="bottom">
-            <time class="time">{{ column.description }}</time>
-            <el-button type="text" class="button">进入专栏</el-button>
-          </div>
+  <div class="row">
+    <div v-for="column in list" :key="column.id" class="col-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body text-center">
+          <img :src="column.active" :alt="column.title" class="rounded-circle border border-light my-3">
+          <h5 class="card-title">{{ column.title }}</h5>
+          <p class="card-text text-left">{{ column.description }}</p>
+          <div @click="go(column)" class="btn btn-outline-primary">进入专栏</div>
         </div>
-      </el-card>
-    </el-col>
-  </el-row>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { computed, defineProps, PropType } from 'vue'
+import { useRouter } from 'vue-router'
 
 export interface ColumnProps {
   id: number,
@@ -25,6 +24,7 @@ export interface ColumnProps {
   description: string
 }
 
+const route = useRouter()
 const props = defineProps({
   list: {
     type: Array as PropType<ColumnProps[]>,
@@ -40,37 +40,22 @@ const activeMenu = computed(() => {
     return item
   })
 })
-console.log(activeMenu.value)
+const go = (column: { id: any; title: any; active: any; description: string }) => {
+  route.push({
+    path: `/column/${column.id}`,
+    query: {
+      title: column.title,
+      avatar: column.active,
+      description: column.description
+    }
+  })
+}
+
 </script>
 
 <style scoped>
-.time {
-  font-size: 13px;
-  color: #999;
-}
-
-.bottom {
-  margin-top: 13px;
-  line-height: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.button {
-  padding: 0;
-  min-height: auto;
-}
-
-.el-row--flex {
-  min-width: 200px;
-  height: 200px;
-}
-
-.image {
-  width: 100px;
-  border-radius: 50px;
-  margin: 0 auto;
-  display: block;
+.card-body img {
+  width: 50px;
+  height: 50px;
 }
 </style>

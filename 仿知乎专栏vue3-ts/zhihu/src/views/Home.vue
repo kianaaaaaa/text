@@ -1,22 +1,18 @@
 <template>
   <div class="min">
-    <Global-hader :user="user"></Global-hader>
-    <validate-form ref="validateRef" @form_submit="onFromSubmit">
-      <div class="mb-3">
-        <label class="form-label" for="exampleInputEmail1" @click="dianji">用户名</label>
-        <Validata-input ref="inputRef" v-model="emailVal" :rules="emailRules" placeholder="请输入邮箱"
-                        type="email"></Validata-input>
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <el-image lazy src="http://fxjc.cgbchina.com.cn/images/pc_kv.png" alt="callout" class="w-50"/>
+          <h2 class="font-weight-light">随心写作，自由表达</h2>
+          <p>
+            <a href="#" class="btn btn-primary my-2">开始写文章</a>
+          </p>
+        </div>
       </div>
-      <div class="mb-3">
-        <label class="form-label" for="exampleInputPassword1">密码</label>
-        <Validata-input v-model="passwordVal" :rules="passwordRules" placeholder="请输入密码"
-                        type="password"></Validata-input>
-      </div>
-      <template #submit>
-        <span class="btn btn-danger">submit</span>
-      </template>
-    </validate-form>
-    <Column-list v-if="false" :list='list' class="mt-5"></Column-list>
+    </section>
+    <h4 class="font-weight-bold text-center">发现精彩</h4>
+    <Column-list :list='list'></Column-list>
   </div>
 
 </template>
@@ -24,43 +20,9 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import ColumnList, { ColumnProps } from '@/components/ColumnList.vue'
-import GlobalHader, { userProps } from '@/components/GlobalHader.vue'
-import validateForm from '@/components/validateForm.vue'
-import ValidataInput, { RulesProp } from '@/components/Validatainput.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-/*
-* 头部栏
-* */
-const userData: userProps = {
-  isLogin: false,
-  name: 'kiana'
-}
 
-const user = userData
-
-/*
-* 登录
-* */
-const hw = ref(null)
-const emailVal = ref('123@test.com')
-const emailRules: RulesProp = [
-  {
-    type: 'required',
-    message: '电子邮箱地址不能为空'
-  },
-  {
-    type: 'email',
-    message: '请输入正确的邮箱格式'
-  }
-]
-const passwordVal = ref('123')
-const passwordRules: RulesProp = [
-  {
-    type: 'required',
-    message: '密码不能为空'
-  }
-]
 
 /*
 *  列表栏
@@ -89,17 +51,8 @@ const testData: ColumnProps[] = [
   }
 ]
 const list = testData
-/*
-* 表单验证
-* */
-const inputRef = ref<any>(null)
-const onFromSubmit = (result: Boolean) => {
-  console.log(inputRef.value.validateInput())
-}
+
 </script>
 <style>
-.min {
-  max-width: 90%;
-  margin: 0 auto;
-}
+
 </style>

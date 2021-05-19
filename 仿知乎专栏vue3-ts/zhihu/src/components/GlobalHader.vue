@@ -1,10 +1,10 @@
 <template>
   <nav class="navbar navbar-expand-lg  navbar-dark bg-primary p-2">
     <div class="container-fluid">
-      <a class="navbar-brand me-4" href="#"> 知乎专栏</a>
+      <router-link to="/" class="navbar-brand me-4"> 知乎专栏</router-link>
       <form class="d-flex" v-if="!list.isLogin">
-        <div class="btn btn-outline-light me-2" type="submit" @click="login">登录</div>
-        <div class="btn btn-outline-light me-2" type="submit">注册</div>
+        <router-link to="/login" tag="div" class="btn btn-outline-light me-2" type="submit" @click="login">登录</router-link>
+        <router-link to="/login" tag="div" class="btn btn-outline-light me-2" type="submit">注册</router-link>
       </form>
       <form class="d-flex" v-else>
         <Dropdown :name="`你好 ${list.name}`">

@@ -15,15 +15,21 @@ import mitt from '@/hooks/mitt.ts'
 
 const ctx = useContext()
 const emit = defineEmit(['form_submit'])
+type ValidateFunc = () => boolean;
 
+let funcArr: ValidateFunc[] = []
+
+const callback = (func: ValidateFunc) => {
+  funcArr.push(func)
+}
 const submitFrom = () => {
-  emit('form_submit', true)
+  const result = funcArr.map(func => func).every(res => res)
+  emit('form_submit', result)
 }
-const callback = (test: string) => {
-  console.log(test)
-}
-mitt.on('foo', e => console.log(e))
+
+mitt.on('foo', (e) =>callback(e))
 onUnmounted(() => {
-  mitt.off('foo', () => console.log('移除'))
+  mitt.off('foo', (e) =>callback(e))
+  funcArr = []
 })
 </script>
