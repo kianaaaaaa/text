@@ -22,8 +22,6 @@ import { ref, onMounted } from 'vue'
 import ColumnList, { ColumnProps } from '@/components/ColumnList.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-
-
 /*
 *  列表栏
 * */
