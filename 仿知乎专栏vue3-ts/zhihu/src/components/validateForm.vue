@@ -22,11 +22,10 @@ let funcArr: ValidateFunc[] = []
 const callback = (func: ValidateFunc) => {
   funcArr.push(func)
 }
-const submitFrom = () => {
-  const result = funcArr.map(func => func).every(res => res)
+  const submitFrom = () => {
+  const result = funcArr.map(func => func()).every(res => res)
   emit('form_submit', result)
 }
-
 mitt.on('foo', (e) =>callback(e))
 onUnmounted(() => {
   mitt.off('foo', (e) =>callback(e))

@@ -12,7 +12,7 @@
                         type="password"></Validata-input>
       </div>
       <template #submit>
-        <span class="btn btn-danger">submit</span>
+        <span class="btn btn-primary">登录</span>
       </template>
     </validate-form>
   </div>
@@ -20,12 +20,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import ValidataInput, { RulesProp } from '@/components/Validatainput.vue'
 import validateForm from '@/components/validateForm.vue'
 
 const router = useRouter()
+const store = useStore()
 /*
 * 登录
 * */
@@ -53,8 +55,11 @@ const passwordRules: RulesProp = [
 * */
 const inputRef = ref<any>(null)
 const onFromSubmit = (result: Boolean) => {
-  console.log('result', result)
-  result && router.push('/')
+  console.log(result)
+  if (result) {
+    router.push('/')
+    store.commit('login')
+  }
 }
 </script>
 

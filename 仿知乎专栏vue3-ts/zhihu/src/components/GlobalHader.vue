@@ -2,12 +2,12 @@
   <nav class="navbar navbar-expand-lg  navbar-dark bg-primary p-2">
     <div class="container-fluid">
       <router-link to="/" class="navbar-brand me-4"> 知乎专栏</router-link>
-      <form class="d-flex" v-if="!list.isLogin">
-        <router-link to="/login" tag="div" class="btn btn-outline-light me-2" type="submit" @click="login">登录</router-link>
+      <form class="d-flex" v-if="!user.isLogin">
+        <router-link to="/login" tag="div" class="btn btn-outline-light me-2" type="submit">登录</router-link>
         <router-link to="/login" tag="div" class="btn btn-outline-light me-2" type="submit">注册</router-link>
       </form>
       <form class="d-flex" v-else>
-        <Dropdown :name="`你好 ${list.name}`">
+        <Dropdown :name="`你好 ${user.name}`">
           <Dropdown-item disable>设置</Dropdown-item>
           <Dropdown-item>会员中心</Dropdown-item>
           <Dropdown-item>设置</Dropdown-item>
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, defineProps, PropType } from 'vue'
+import { defineProps, PropType } from 'vue'
 import Dropdown from '@/components/Dropdown.vue' // @ is an alias to /src
 import DropdownItem from '@/components/DropdownItem.vue'
 
@@ -34,12 +34,13 @@ const props = defineProps({
     require: true
   }
 })
-// 获取props传值 复杂类型数据 reactive | 基本数据 ref
-const list = reactive(props.user)
+
+
+
 // 点击事件
-const login = () => {
-  list.isLogin = true
-}
+// const login = () => {
+//   list.isLogin = true
+// }
 
 </script>
 

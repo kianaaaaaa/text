@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <Global-hader :user="userData"></Global-hader>
+    <Global-hader :user="currentUser"></Global-hader>
+
     <router-view class="mb-xl-5 mt-xl-5"/>
     <footer class="text-center py-4 text-secondary bg-light">
       <small>
@@ -16,15 +17,14 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { useStore } from 'vuex'
+import { computed } from 'vue'
 import GlobalHader, { userProps } from '@/components/GlobalHader.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
-/*
-* 头部栏
-* */
-const userData: userProps = {
-  isLogin: false,
-  name: 'kiana'
-}
+
+const store = useStore()
+const currentUser = computed(()=>store.state.user)
+
 
 
 </script>

@@ -64,7 +64,7 @@ const updateValue = (e: KeyboardEvent) => {
 }
 
 onMounted(() => {
-  mitt.emit('foo', inputRef.val)
+  mitt.emit('foo', validateInput)
 })
 
 ctx.expose({
