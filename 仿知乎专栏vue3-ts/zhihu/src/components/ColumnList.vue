@@ -42,12 +42,7 @@ const activeMenu = computed(() => {
 })
 const go = (column: { id: any; title: any; active: any; description: string }) => {
   route.push({
-    path: `/column/${column.id}`,
-    query: {
-      title: column.title,
-      avatar: column.active,
-      description: column.description
-    }
+    path: `/column/${column.id}`
   })
 }
 

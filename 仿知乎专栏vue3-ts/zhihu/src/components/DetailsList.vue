@@ -22,6 +22,7 @@ const props = defineProps(['list'])
 
 const list = reactive(props.list)
 
+
 </script>
 
 <style scoped>

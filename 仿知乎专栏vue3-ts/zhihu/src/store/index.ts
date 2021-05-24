@@ -28,10 +28,16 @@ export default createStore<GlobalDataProps>({
       }
     }
   },
-  getters:{
-  biggerColumnsLen(state){
-    return state.columns.filter(item => item.id > 2 ).length;
-  }
+  getters: {
+    biggerColumnsLen (state) {
+      return state.columns.filter(item => item.id > 2).length
+    },
+    getColumnById: (state) => (id: number) => {
+      return state.columns.find(item => item.id == id)
+    },
+    getPostsByCid: (state) => (cid: number) => {
+      return state.posts.filter(item => item.columnId == cid)
+    }
   },
   actions: {},
   modules: {}

@@ -15,16 +15,22 @@
 
 <script setup>
 import { computed, useContext, reactive } from 'vue'
+import { useStore } from 'vuex'
 import { useRoute, APIuseRouter } from 'vue-router'
 import { testData, testPosts } from '@/dist/testData'
 import DetailsList from '@/components/DetailsList.vue'
 
 const router = useRoute()
+const store = useStore()
 const ctx = useContext()
 const currentId = +router.params.id
-const column = reactive(router.query)
-// const column = +testData.find(item => item.id === currentId)
-const list = testPosts.filter(item => item.columnId === currentId)
+console.log(currentId)
+const list = computed(() => store.getters.getPostsByCid(currentId))
+const column = computed(() => store.getters.getColumnById(currentId))
+
+console.log(column.value)
+
+
 </script>
 
 <style scoped>
