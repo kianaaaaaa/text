@@ -19,6 +19,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/column/:id',
     name: 'column',
     component: () => import('@/views/column.vue')
+  } ,{
+    path: '/createPost',
+    name: 'createPost',
+    component: () => import('@/views/CreatePost.vue')
   }
 ]
 

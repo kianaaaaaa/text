@@ -4,20 +4,26 @@ import { testData, testPosts, ColumnProps, PostProps } from '../dist/testData'
 interface userPropos {
   isLogin: boolean,
   name?: string,
-  id?: number
+  id?: number,
+  columnId?: number
 }
 
 export interface GlobalDataProps {
   columns: ColumnProps[],
   posts: PostProps[],
-  user: userPropos
+  user: userPropos,
+
 }
 
 export default createStore<GlobalDataProps>({
   state: {
     columns: testData,
     posts: testPosts,
-    user: { isLogin: false }
+    user: {
+      isLogin: true,
+      name: 'kiana',
+      columnId: 1
+    }
   },
   mutations: {
     login (state) {
@@ -26,6 +32,9 @@ export default createStore<GlobalDataProps>({
         isLogin: true,
         name: 'kiana'
       }
+    },
+    createPost (state, newPost) {
+      state.posts.push(newPost)
     }
   },
   getters: {

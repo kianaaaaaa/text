@@ -55,7 +55,6 @@ const passwordRules: RulesProp = [
 * */
 const inputRef = ref<any>(null)
 const onFromSubmit = (result: Boolean) => {
-  console.log(result)
   if (result) {
     router.push('/')
     store.commit('login')

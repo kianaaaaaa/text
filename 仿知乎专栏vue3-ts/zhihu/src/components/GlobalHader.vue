@@ -9,7 +9,7 @@
       <form class="d-flex" v-else>
         <Dropdown :name="`你好 ${user.name}`">
           <Dropdown-item disable>设置</Dropdown-item>
-          <Dropdown-item>会员中心</Dropdown-item>
+          <Dropdown-item> 新建文章</Dropdown-item>
           <Dropdown-item>设置</Dropdown-item>
         </Dropdown>
       </form>

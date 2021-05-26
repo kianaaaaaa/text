@@ -1,5 +1,6 @@
 <template>
   <input
+    v-if="tag !== 'textarea'"
     v-bind="$attrs"
     :class="{'is-invalid': inputRef.error}"
     :value="inputRef.val"
@@ -8,6 +9,16 @@
     @blur="validateInput"
     @input="updateValue"
   >
+  <textarea
+   v-else
+    v-bind="$attrs"
+    :class="{'is-invalid': inputRef.error}"
+    :value="inputRef.val"
+    aria-describedby="emailHelp"
+    class="form-control"
+    @blur="validateInput"
+    @input="updateValue"
+  ></textarea>
   <text v-if="inputRef.error" class="invalid-feedback">{{ inputRef.message }}</text>
 </template>
 
@@ -17,6 +28,7 @@ import mitt from '@/hooks/mitt.ts'
 
 const emailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
 const ctx = useContext()
+export type TagType = 'input' | 'textarea'
 
 export interface RuleProp {
   type: 'required' | 'email',
@@ -26,7 +38,11 @@ export interface RuleProp {
 export type RulesProp = RuleProp[]
 const props = defineProps({
   rules: Array as PropType<RulesProp>,
-  modelValue: String
+  modelValue: String,
+  tag: {
+    type: String as PropType<TagType>,
+    default: 'input'
+  }
 })
 
 const inputRef = reactive({
