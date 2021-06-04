@@ -5,7 +5,7 @@
       <div class="mb-3">
         <label class="form-label">文章标题：</label>
         <Validata-input
-          :rules="titleRules" v-model="titleVal"
+          v-model="titleVal" :rules="titleRules"
           placeholder="请输入文章标题"
           tag="text"
         />
@@ -13,11 +13,11 @@
       <div class="mb-3">
         <label class="form-label">文章详情：</label>
         <Validata-input
+          v-model="contentVal"
+          :rules="contentRules"
+          placeholder="请输入文章详情"
           rows="10"
           tag="textarea"
-          placeholder="请输入文章详情"
-          :rules="contentRules"
-          v-model="contentVal"
         />
       </div>
       <template #submit>
@@ -69,7 +69,6 @@ const onFormSubmit = (result: boolean) => {
         params: { id: columnId }
       })
     }
-
   }
 }
 </script>

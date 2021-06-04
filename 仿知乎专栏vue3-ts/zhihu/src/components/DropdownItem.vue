@@ -17,9 +17,11 @@ const props = defineProps({
 </script>
 
 <style scoped>
+
 .dropdown-options .is-disabled * {
   color: #6c757d;
   pointer-events: none;
   background-color: transparent;
 }
+
 </style>

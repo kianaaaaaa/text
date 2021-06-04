@@ -8,8 +8,9 @@
       </form>
       <form class="d-flex" v-else>
         <Dropdown :name="`你好 ${user.name}`">
-          <Dropdown-item disable>设置</Dropdown-item>
-          <Dropdown-item> 新建文章</Dropdown-item>
+          <router-link to="/createPost" tag="div" style=" text-decoration:none; ">
+            <Dropdown-item> 新建文章</Dropdown-item>
+          </router-link>
           <Dropdown-item>设置</Dropdown-item>
         </Dropdown>
       </form>
