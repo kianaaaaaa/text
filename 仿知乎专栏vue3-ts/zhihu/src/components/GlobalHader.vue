@@ -1,14 +1,14 @@
 <template>
   <nav class="navbar navbar-expand-lg  navbar-dark bg-primary p-2">
     <div class="container-fluid">
-      <router-link to="/" class="navbar-brand me-4"> 知乎专栏</router-link>
-      <form class="d-flex" v-if="!user.isLogin">
-        <router-link to="/login" tag="div" class="btn btn-outline-light me-2" type="submit">登录</router-link>
-        <router-link to="/login" tag="div" class="btn btn-outline-light me-2" type="submit">注册</router-link>
+      <router-link class="navbar-brand me-4" to="/"> 知乎专栏</router-link>
+      <form v-if="!user.isLogin" class="d-flex">
+        <router-link class="btn btn-outline-light me-2" tag="div" to="/login" type="submit">登录</router-link>
+        <router-link class="btn btn-outline-light me-2" tag="div" to="/login" type="submit">注册</router-link>
       </form>
-      <form class="d-flex" v-else>
+      <form v-else class="d-flex">
         <Dropdown :name="`你好 ${user.name}`">
-          <router-link to="/createPost" tag="div" style=" text-decoration:none; ">
+          <router-link style=" text-decoration:none; " tag="div" to="/createPost">
             <Dropdown-item> 新建文章</Dropdown-item>
           </router-link>
           <Dropdown-item>设置</Dropdown-item>
@@ -29,20 +29,12 @@ export interface userProps {
   isLogin: boolean,
 }
 
-const props = defineProps({
+defineProps({
   user: {
     type: Object as PropType<userProps>,
     require: true
   }
 })
-
-
-
-// 点击事件
-// const login = () => {
-//   list.isLogin = true
-// }
-
 </script>
 
 <style scoped>

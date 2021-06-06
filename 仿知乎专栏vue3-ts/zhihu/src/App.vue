@@ -18,13 +18,11 @@
 </template>
 <script lang="ts" setup>
 import { useStore } from 'vuex'
-import { computed } from 'vue'
+import { computed, getCurrentInstance } from 'vue'
 import GlobalHader, { userProps } from '@/components/GlobalHader.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const store = useStore()
-const currentUser = computed(()=>store.state.user)
-
-
+const currentUser = computed(() => store.state.user)
 
 </script>

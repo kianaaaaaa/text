@@ -3,10 +3,10 @@
     <div v-for="column in list" :key="column.id" class="col-4 mb-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
-          <img :src="column.avatar" :alt="column.title" class="rounded-circle border border-light my-3">
+          <img :alt="column.title" :src="column.avatar.url" class="rounded-circle border border-light my-3">
           <h5 class="card-title">{{ column.title }}</h5>
           <p class="card-text text-left">{{ column.description }}</p>
-          <div @click="go(column)" class="btn btn-outline-primary">进入专栏</div>
+          <div class="btn btn-outline-primary" @click="go(column)">进入专栏</div>
         </div>
       </div>
     </div>
@@ -15,14 +15,8 @@
 
 <script lang="ts" setup>
 import { computed, defineProps, PropType } from 'vue'
+import { ColumnProps } from '@/store/index'
 import { useRouter } from 'vue-router'
-
-export interface ColumnProps {
-  id: number,
-  title: string,
-  active: string,
-  description: string
-}
 
 const route = useRouter()
 const props = defineProps({
@@ -31,10 +25,9 @@ const props = defineProps({
     require: true
   }
 })
-
 const activeMenu = computed(() => {
   return props.list.map(item => {
-    if (!item.active) {
+    if (!item.avatar) {
       item.active = require('@/assets/logo.png')
     }
     return item
