@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="root"></div>
+
+</body>
+<script src="../bin/react.development.js"></script>
+<script src="../bin/react-dom.development.js"></script>
+<script src="../bin/babel.min.js"></script>
+<!-- 需要babel 来es6 转 es5 -->
+<script type="text/babel">
+    // 函数式组件的时候 首字母要大写
+    function Demo() {
+        return <h1>函数式组件 </h1>
+    }
+
+    // 渲染虚拟DOM
+    ReactDOM.render(<Demo/>, document.getElementById('root'));
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .title {
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+<div id="root"></div>
+
+</body>
+<script src="../bin/react.development.js"></script>
+<script src="../bin/react-dom.development.js"></script>
+<script src="../bin/babel.min.js"></script>
+<!-- 需要babel 来es6 转 es5 -->
+<script type="text/babel">
+    // 创建虚拟DOM
+    // 模拟数据
+    const data = ['VUE', 'REACT', 'ANGULAR']
+    const VDOM = (
+        <div>
+            <h2>前端JS框架列表</h2>
+            <ul>
+                {
+                    data.map((item, index) => {
+                        return <li key={index}> {item} </li>
+                    })
+                }
+            </ul>
+        </div>
+    )
+    // 渲染虚拟DOM
+    ReactDOM.render(VDOM, document.getElementById('root'));
+    /*
+    * 样式的类名不要用class  要使用className
+    * 内敛样式要使用 style={{key:"value"}}形式方式
+    * */
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 创建一个person类
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        // speck 在类的原型对象上
+        // speck 是给实例用的
+        // 通过person实例调用speck时 speck的this就是person的实例
+        speck() {
+            console.log(`我叫${this.name},我都的年龄是${this.age}`)
+        }
+    }
+
+    // const p1 = new Person('张三', 16)
+    const p2 = new Person('李四', 12)
+
+    // 创建一个Student类 来继承于Person类
+    class Student extends Person {
+        constructor(name, age, sex) {
+            super(name, age);
+            this.sex = sex
+        }
+        speck() {
+            console.log(`我叫${this.name},我都的年龄是${this.age},我的性别是${this.sex}`)
+        }
+        study(){
+            console.log('我很努力的学习')
+        }
+    }
+    const p3 = new Student("王五",30,"男")
+    p3.speck()
+    p3.study()
+    console.log(p3)
+</script>
+</html>
