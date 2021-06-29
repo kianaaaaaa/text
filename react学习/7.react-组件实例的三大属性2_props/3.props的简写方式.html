@@ -20,6 +20,11 @@
 <script type="text/babel">
     // 函数式组件的时候 首字母要大写
     class MayComponent extends React.Component {
+        constructor(props) {
+            // 构造器是否接受props 是否传递super 取决于 是否希望在构造器中通过this访问props
+            super(props);
+            console.log(this.props)
+        }
 
         static propTypes = {
             name: PropTypes.string.isRequired, // 必穿
@@ -29,7 +34,9 @@
         }
         static defaultProps = {
             sex: '不男不女',
+            age: 18
         }
+
         // 创建组件
         render() {
             console.log(this)
@@ -45,7 +52,7 @@
         }
     }
 
-    const p = {name: 'tome', age: 18, sex: '女', speak: speak}
+    const p = {name: 'tome'}
 
     function speak() {
         console.log('说话')

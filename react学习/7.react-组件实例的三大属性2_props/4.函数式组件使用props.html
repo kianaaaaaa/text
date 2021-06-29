@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root"></div>
+
+</body>
+<!--react 核心库-->
+<script src="../bin/react.development.js"></script>
+<!--react dom操作-->
+<script src="../bin/react-dom.development.js"></script>
+<!--es6转es5-->
+<script src="../bin/babel.min.js"></script>
+<!--引入props-types 用于对组件标签属性进行限制-->
+<script src="../bin/prop-types.js"></script>
+<!-- 需要babel 来es6 转 es5 -->
+<script type="text/babel">
+
+
+    function MayComponent(props) {
+
+        return (
+            <ul>
+                <li>姓名: {props.name}</li>
+                <li>性别: {props.sex}</li>
+                <li>年龄: {props.age + 1}</li>
+            </ul>
+        )
+    }
+    MayComponent.propTypes = {
+        name: PropTypes.string.isRequired, // 必穿
+        sex: PropTypes.string,
+        age: PropTypes.number
+    }
+    MayComponent.defaultProps = {
+        sex: '不男不女',
+        age: 18
+    }
+
+    // ReactDOM.render(<MayComponent name={"tome"} age={18} sex={"女"}/>, document.getElementById('root'));
+    ReactDOM.render(<MayComponent name={'李四'}/>, document.getElementById('root'));
+</script>
+</html>
