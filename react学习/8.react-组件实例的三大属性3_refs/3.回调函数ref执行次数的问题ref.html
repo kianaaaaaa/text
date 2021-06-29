@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+<script src="../bin/react.development.js"></script>
+<script src="../bin/react-dom.development.js"></script>
+<script src="../bin/babel.min.js"></script>
+<script type="text/babel">
+    class MayComponent extends React.Component {
+        state = {
+            isHot: true
+        }
+
+        render() {
+            const {isHot} = this.state
+            return (
+                <div>
+                    <h2 onClick={this.Hot}>今天天气{isHot ? '炎热' : '凉爽'}</h2>
+                    <label>
+                        <input type="text" ref={c => this.input1 = c} placeholder="点击按钮提示数据"/>
+                    </label>
+                    <button onClick={this.showData}>点击我提示左侧的数据</button>
+                    <label>
+                        <input onBlur={this.showData2} type="text" ref={c => this.input2 = c} placeholder="失去焦点提示数据"/>
+                    </label>
+                </div>
+            )
+        }
+
+        Hot = () => {
+            const {isHot} = this.state
+            this.setState({
+                isHot: !isHot
+            })
+        }
+        showData = () => {
+            const {input1} = this
+            alert(input1.value)
+        }
+        showData2 = () => {
+            this.input2.value = this.input1.value
+        }
+    }
+
+    ReactDOM.render(<MayComponent name={'ref'}/>, document.getElementById('test'))
+</script>
+</body>
+</html>
