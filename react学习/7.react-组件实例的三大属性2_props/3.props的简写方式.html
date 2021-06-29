@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root"></div>
+
+</body>
+<!--react 核心库-->
+<script src="../bin/react.development.js"></script>
+<!--react dom操作-->
+<script src="../bin/react-dom.development.js"></script>
+<!--es6转es5-->
+<script src="../bin/babel.min.js"></script>
+<!--引入props-types 用于对组件标签属性进行限制-->
+<script src="../bin/prop-types.js"></script>
+<!-- 需要babel 来es6 转 es5 -->
+<script type="text/babel">
+    // 函数式组件的时候 首字母要大写
+    class MayComponent extends React.Component {
+
+        static propTypes = {
+            name: PropTypes.string.isRequired, // 必穿
+            sex: PropTypes.string,
+            age: PropTypes.number,
+            speak: PropTypes.func
+        }
+        static defaultProps = {
+            sex: '不男不女',
+        }
+        // 创建组件
+        render() {
+            console.log(this)
+            const {name, age, sex} = this.props;
+            // props是只读的
+            return (
+                <ul onClick={this.props.speak}>
+                    <li>姓名: {name}</li>
+                    <li>性别: {sex}</li>
+                    <li>年龄: {age + 1}</li>
+                </ul>
+            )
+        }
+    }
+
+    const p = {name: 'tome', age: 18, sex: '女', speak: speak}
+
+    function speak() {
+        console.log('说话')
+    }
+
+    // ReactDOM.render(<MayComponent name={"tome"} age={18} sex={"女"}/>, document.getElementById('root'));
+    ReactDOM.render(<MayComponent {...p} />, document.getElementById('root'));
+</script>
+</html>
