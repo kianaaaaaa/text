@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+<script src="../bin/react.development.js"></script>
+<script src="../bin/react-dom.development.js"></script>
+<script src="../bin/babel.min.js"></script>
+<script type="text/babel">
+    // 创建组件
+
+    // 声明周期钩子函数
+    class MayComponent extends React.Component {
+        // 初始化状态
+
+        constructor(props) {
+            super(props);
+            this.state = {
+                count: 0
+            }
+            console.log('构造器 -- constructor')
+        }
+
+        // 求和
+        add = () => {
+            const {count} = this.state
+            this.setState({count: count + 1})
+        }
+        death = () => {
+            // 卸载组件
+            ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+        }
+        force = () => {
+            // 强制更新
+            this.forceUpdate()
+        }
+
+        // 组件将要挂载
+        componentWillMount() {
+            console.log('组件将要挂载 -- componentWillMount')
+        }
+
+        // 组件挂载完毕的钩子
+        componentDidMount() {
+            console.log('组件挂载完毕的钩子 -- componentDidMount')
+        }
+
+        // 组件将要卸载的钩子
+        componentWillUnmount() {
+            console.log('组件将要卸载的钩子 -- componentWillUnmount')
+        }
+
+        // 控制组件更新的阀门 //需要返回布尔值
+        shouldComponentUpdate() {
+            console.log('控制组件更新的阀门 -- componentWillUnmount')
+            return true
+        }
+
+        // 组件跟新前的钩子
+        componentWillUpdate() {
+            console.log('组件跟新前的钩子 -- componentWillUpdate')
+
+        }
+
+        // 组件更新完毕的钩子
+        componentDidUpdate() {
+            console.log('组件更新完毕的钩子 -- componentDidUpdate')
+
+        }
+
+        render() {
+            console.log('渲染 render')
+            const {count} = this.state
+            return (
+                <div>
+                    <h2>求和 {count}</h2>
+                    <button onClick={this.add}>点我+1</button>
+                    <button onClick={this.death}>卸载组件</button>
+                    <button onClick={this.force}>强制更新一按下 不更改数据</button>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<MayComponent name={'ref'}/>, document.getElementById('test'))
+</script>
+</body>
+</html>

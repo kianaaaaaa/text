@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+<script src="../bin/react.development.js"></script>
+<script src="../bin/react-dom.development.js"></script>
+<script src="../bin/babel.min.js"></script>
+<script type="text/babel">
+    // 创建组件
+    class MayComponent extends React.Component {
+        // 初始化状态
+        state = {
+            opacity: .1
+        }
+        death = () => {
+            // 卸载
+           ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+        }
+
+        render() {
+            return (
+                <div>
+                    <h2 style={{opacity:this.state.opacity}}>React 学不会怎么办</h2>
+                    <button onClick={this.death}>不活了</button>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<MayComponent name={'ref'}/>, document.getElementById('test'))
+</script>
+</body>
+</html>
