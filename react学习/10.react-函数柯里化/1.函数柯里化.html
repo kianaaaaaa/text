@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+<script src="../bin/react.development.js"></script>
+<script src="../bin/react-dom.development.js"></script>
+<script src="../bin/babel.min.js"></script>
+<script type="text/babel">
+    // 创建组件
+    class MayComponent extends React.Component {
+        // 初始化状态
+        state = {
+            username: '', // 用户名
+            password: '' // 密码
+        }
+
+        fromData = (dataType) => {
+            return (e) => {
+                this.setState({
+                    [dataType]: e.target.value
+                })
+            }
+        }
+        // 提交表单的回调
+        submit = (e) => {
+            e.preventDefault()//阻止默认事件
+            alert(`您的用户名是${this.state.username}, 您的密码是${this.state.password}`)
+        }
+
+        render() {
+            return (
+                <form onSubmit={this.submit}>
+                    用户名: <input type="text" name="user" onChange={this.fromData('username')}/>
+                    密码: <input type="password" name="password" onChange={this.fromData('password')}/>
+                    <button>登录</button>
+                </form>
+            )
+        }
+    }
+
+    ReactDOM.render(<MayComponent name={'ref'}/>, document.getElementById('test'))
+</script>
+</body>
+</html>

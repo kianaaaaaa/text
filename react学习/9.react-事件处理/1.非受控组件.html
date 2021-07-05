@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+<script src="../bin/react.development.js"></script>
+<script src="../bin/react-dom.development.js"></script>
+<script src="../bin/babel.min.js"></script>
+<script type="text/babel">
+    class MayComponent extends React.Component {
+
+
+        // react 通过事件委托的方式处理 ---为了高效
+
+        // 创建ref 容器
+
+
+        submit = (event) => {
+            const {userRef, passwordRef} = this
+            event.preventDefault()//阻止默认事件
+            alert(`您的用户名是${userRef.value}, 您的密码是${passwordRef.value}`)
+        }
+
+        render() {
+            return (
+                <form onSubmit={this.submit}>
+                    用户名: <input type="text" name="user" ref={c => this.userRef = c}/>
+                    密码: <input type="password" name="password" ref={c => this.passwordRef = c}/>
+                    <button>登录</button>
+                </form>
+            )
+        }
+    }
+
+    ReactDOM.render(<MayComponent name={'ref'}/>, document.getElementById('test'))
+</script>
+</body>
+</html>
