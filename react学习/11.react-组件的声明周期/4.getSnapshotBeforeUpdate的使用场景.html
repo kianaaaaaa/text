@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .list {
+            width: 200px;
+            height: 150px;
+            background-color: skyblue;
+            overflow: auto;
+        }
+
+        .news {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="test"></div>
+<script src="../bin/17.1/react.development.js"></script>
+<script src="../bin/17.1/react-dom.development.js"></script>
+<script src="../bin/17.1/babel.min.js"></script>
+<script type="text/babel">
+    // 声明周期钩子函数
+    class MayComponent extends React.Component {
+        state = {
+            newsArr: []
+        }
+
+        componentDidMount() {
+            setInterval(() => {
+                const {newsArr} = this.state;
+                const news = '新闻' + (newsArr.length + 1)
+                this.setState({newsArr: [news, ...newsArr]})
+            }, 1000)
+        }
+
+        getSnapshotBeforeUpdate() {
+            return this.listRef.scrollHeight
+        }
+
+        componentDidUpdate(perProps, perState, height) {
+            this.listRef.scrollTop += this.listRef.scrollHeight - height
+        }
+
+        render() {
+            return (
+                <div className="list" ref={c => this.listRef = c}>
+                    {
+                        this.state.newsArr.map((item, index) => {
+                            return <div className="news" key={index}>{item}</div>
+                        })
+                    }
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<MayComponent name={'ref'}/>, document.getElementById('test'))
+</script>
+</body>
+</html>
