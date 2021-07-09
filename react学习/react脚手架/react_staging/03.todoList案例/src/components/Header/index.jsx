@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import {nanoid} from "nanoid";
+import PropTypes from "prop-types";
 
 class Header extends Component {
-
+    static propTypes = {
+        returnVal: PropTypes.func.isRequired,
+    }
     render() {
         return (
             <div className="todo-header">
