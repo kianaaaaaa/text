@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vue-admin + node/vue-admin-template" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vue-admin + node/vue-element-admin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/未命名文件夹/CopyQQMusic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/未命名文件夹/easy-invoices" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/未命名文件夹/electron-vue-demos" vcs="Git" />
   </component>
 </project>
